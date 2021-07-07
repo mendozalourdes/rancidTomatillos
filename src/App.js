@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import movieData from "./movieData"
 import React from "react"
+import MoviesRepo from "./components/MoviesRepo/MoviesRepo"
 
 class App extends React.Component {
     constructor() {
@@ -18,6 +19,7 @@ class App extends React.Component {
           {/* This is where we will import Movies component */}
           {/* this is where our conditional rendering will happen */}
           {/* selected movie within conditional */}
+          <MoviesRepo movies={this.state.movies}/>
         </main>
       );
     }
