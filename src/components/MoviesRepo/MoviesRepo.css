@@ -1,0 +1,10 @@
+
+  .movie-container {
+    display: grid;   
+    grid-template-columns: repeat(3, 3fr);
+    grid-template-rows: repeat(20, 1.5fr);
+    grid-gap: 3%;
+    grid-column-gap: 0%;
+    height: 105vh;
+    margin-left: 2em;
+   }
