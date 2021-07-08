@@ -1,5 +1,7 @@
 import React from "react"
 import Movie from "../Movie/Movie"
+import './MoviesRepo.css'
+
 
 class MoviesRepo extends React.Component {
     constructor(props) {
@@ -15,7 +17,7 @@ class MoviesRepo extends React.Component {
             return <Movie key={movie.id} image={movie.poster_path} title={movie.title}/>
         })
         return (
-            <div>
+            <div className="movie-container">
                 {movieComponents}
             </div>
         )

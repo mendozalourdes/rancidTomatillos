@@ -1,0 +1,23 @@
+
+  .movie-poster {
+    border-radius: 1em;
+    box-shadow: 7px 2px 20px 0px;
+    /* padding: 10px 10px 10px 10px; */
+    width: 24vw;
+    height: auto;
+    overflow: hidden;
+    object-fit: cover;
+  }
+
+.poster-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+button {
+        position: absolute;
+        width: 43px;
+        margin-left: 14px;
+        margin-bottom: 14px;
+}

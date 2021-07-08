@@ -1,13 +1,14 @@
 import React from "react"
+import './Movie.css'
 
 const Movie = (props) => {
     const {title, image} = props
     return(
-        <div>
-            <img src={image}/>
-            <h2>{title}</h2>
+        <div className="poster-container">
+            <img className="movie-poster" src={image}/>
+            <button>More Info</button>
         </div>
     )
 }
 
-export default Movie
+export default Movie;
