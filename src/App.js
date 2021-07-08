@@ -1,25 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import movieData from "./movieData"
+import React from "react"
+import MoviesRepo from "./components/MoviesRepo/MoviesRepo"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    constructor() {
+      super()
+      this.state = {
+        movies: movieData.movies
+      }
+    }
+
+    render() {
+      return (
+        <main>
+          <h1>Rancid Tomatillos</h1>
+          {/* This is where we will import Movies component */}
+          {/* this is where our conditional rendering will happen */}
+          {/* selected movie within conditional */}
+          <MoviesRepo movies={this.state.movies}/>
+        </main>
+      );
+    }
+
 }
 
 export default App;
