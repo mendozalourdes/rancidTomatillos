@@ -27,8 +27,8 @@ const MoviesRepo = props => {
     const movieComponents = props.movies.map(movie => {
             return <Movie 
                         key={movie.id} 
+                        id={movie.id}
                         image={movie.poster_path} 
-                        title={movie.title}
                         showMovieDetails={props.showMovieDetails}
                     />
     })

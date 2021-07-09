@@ -21,6 +21,7 @@ class App extends React.Component {
       const foundMovie = this.state.movies.find(movie => {
         return movie.id === id
       })
+      console.log(foundMovie)
       this.setState({selectedMovie: foundMovie})
     } 
 
@@ -42,7 +43,9 @@ class App extends React.Component {
                                         // returnHome={this.returnHome}
                                       />
                                     : <MoviesRepo 
-                                        movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
+                                        movies={this.state.movies} 
+                                        showMovieDetails={this.showMovieDetails}
+                                      /> 
           }                         
         </main>
       );
