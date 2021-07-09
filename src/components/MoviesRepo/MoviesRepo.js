@@ -3,41 +3,58 @@ import Movie from "../Movie/Movie"
 import './MoviesRepo.css'
 
 
-// class MoviesRepo extends React.Component {
-//     constructor(props) {
-//         super(props)
-//         this.state = {
-//             movies: props.movies
-//         }
-//     }
+class MoviesRepo extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            movies: props.movies,
+            selectedMovie: ""
+        }
+    }
 
-//     render() {
-//         const movieComponents = this.state.movies.map(movie => {
-//             return <Movie key={movie.id} image={movie.poster_path} title={movie.title}/>
-//         })
-//         return (
-//             <div className="movie-container">
-//                 {movieComponents}
-//             </div>
-//         )
-//     }
-// }
+    returnHome = () => {
+        this.setState({selectedMovie: ""})
+      }
+  
+    showMovieDetails = (id) => {
+        // console.log("details")
+        const foundMovie = this.state.movies.find(movie => {
+          return movie.id === id
+        })
+        this.setState({selectedMovie: foundMovie})
+    } 
 
-const MoviesRepo = props => {
-    const movieComponents = props.movies.map(movie => {
+    render() {
+        const movieComponents = this.state.movies.map(movie => {
             return <Movie 
                         key={movie.id} 
                         id={movie.id}
                         image={movie.poster_path} 
-                        showMovieDetails={props.showMovieDetails}
+                        showMovieDetails={this.showMovieDetails}
+                        returnHome={this.returnHome}
                     />
-    })
-    return (
-        <div className="movie-container">
-            {movieComponents}
-        </div>
+        })
+        return ( 
+
         )
+    }
 }
+
+// const MoviesRepo = props => {
+    // const movieComponents = props.movies.map(movie => {
+    //         return <Movie 
+    //                     key={movie.id} 
+    //                     id={movie.id}
+    //                     image={movie.poster_path} 
+    //                     showMovieDetails={props.showMovieDetails}
+    //                 />
+    // })
+    // return (
+    //     <div className="movie-container">
+    //         {movieComponents}
+    //     </div>
+    //     )
+// }
 //}
 
 export default MoviesRepo
