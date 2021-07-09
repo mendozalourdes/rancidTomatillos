@@ -8,9 +8,21 @@ class App extends React.Component {
     constructor() {
       super()
       this.state = {
-        movies: movieData.movies
+        movies: movieData.movies,
+        selectedMovie: ""
       }
     }
+
+    returnHome = () => {
+      this.setState({selectedMovie: ""})
+    }
+
+    showMovieDetails = (id) => {
+      const foundMovie = this.state.movies.find(movie => {
+        return movie.id === id
+      })
+      this.setState({selectedMovie: foundMovie})
+    } 
 
     render() {
       return (
@@ -18,10 +30,20 @@ class App extends React.Component {
           <header> 
             <h1 className="app-title">Rancid Tomatillos</h1>
           </header>
-          {/* This is where we will import Movies component */}
           {/* this is where our conditional rendering will happen */}
           {/* selected movie within conditional */}
-          <MoviesRepo movies={this.state.movies}/>
+          {this.state.selectedMovie ? <SelectedMovie 
+                                        key={this.state.selectedMovie.id} 
+                                        poster={this.state.selectedMovie.poster_path} 
+                                        backdrop={this.state.selectedMovie.backdrop_path}
+                                        title={this.state.selectedMovie.title}
+                                        rating={this.state.selectedMovie.average_rating}
+                                        releaseDate={this.state.selectedMovie.release_date}
+                                        // returnHome={this.returnHome}
+                                      />
+                                    : <MoviesRepo 
+                                        movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
+          }                         
         </main>
       );
     }
