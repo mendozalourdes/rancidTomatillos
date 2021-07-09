@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import movieData from "./movieData"
 import React from "react"
 import MoviesRepo from "./components/MoviesRepo/MoviesRepo"
+import SelectedMovie from "./components/SelectedMovie/SelectedMovie"
 
 class App extends React.Component {
     constructor() {
