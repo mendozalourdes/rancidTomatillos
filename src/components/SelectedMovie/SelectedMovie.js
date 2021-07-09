@@ -1,10 +1,13 @@
 import React from "react"
+import "./SelectedMovie.css"
 
 const SelectedMovie = (props) => {
     const { id, poster, backdrop, title, rating, releaseDate} = props
     return (
         <section className="selected-movie">
-            <img src={backdrop} alt={title}/>
+            <div>
+                <img src={backdrop} alt={title} className="backdrop"/>
+            </div>
             <aside className="sidebar">
                 <h3>{releaseDate}</h3>
                 <h3>{rating}</h3>

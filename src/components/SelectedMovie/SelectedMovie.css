@@ -1,0 +1,6 @@
+.backdrop {
+    width: auto;
+    height: 60vh;
+    overflow: hidden;
+    object-fit: cover;
+}
