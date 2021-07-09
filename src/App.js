@@ -21,7 +21,6 @@ class App extends React.Component {
       const foundMovie = this.state.movies.find(movie => {
         return movie.id === id
       })
-      console.log(foundMovie)
       this.setState({selectedMovie: foundMovie})
     } 
 
@@ -40,7 +39,7 @@ class App extends React.Component {
                                         title={this.state.selectedMovie.title}
                                         rating={this.state.selectedMovie.average_rating}
                                         releaseDate={this.state.selectedMovie.release_date}
-                                        // returnHome={this.returnHome}
+                                        returnHome={this.returnHome}
                                       />
                                     : <MoviesRepo 
                                         movies={this.state.movies} 

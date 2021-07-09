@@ -23,7 +23,7 @@ const SelectedMovie = (props) => {
                 <h3>this is a movie about blah</h3>
                 {/* <h3>{overview}</h3> */}
             </article>
-
+            <button onClick={() => props.returnHome()}>Return Home</button>
         </section>
     )
 }
