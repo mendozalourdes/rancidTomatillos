@@ -1,5 +1,6 @@
 import React from "react"
 import Movie from "../Movie/Movie"
+import SelectedMovie from "../SelectedMovie/SelectedMovie"
 import './MoviesRepo.css'
 
 
