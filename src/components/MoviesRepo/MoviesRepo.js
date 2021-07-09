@@ -35,7 +35,21 @@ class MoviesRepo extends React.Component {
                     />
         })
         return ( 
-
+            <>
+            {this.state.selectedMovie ? <SelectedMovie 
+                                            key={this.state.selectedMovie.id} 
+                                            poster={this.state.selectedMovie.poster_path} 
+                                            backdrop={this.state.selectedMovie.backdrop_path}
+                                            title={this.state.selectedMovie.title}
+                                            rating={this.state.selectedMovie.average_rating}
+                                            releaseDate={this.state.selectedMovie.release_date}
+                                            returnHome={this.returnHome}
+                                        />
+                                    : <div className="movie-container">
+                                        {movieComponents}
+                                      </div>
+            }
+            </>
         )
     }
 }
