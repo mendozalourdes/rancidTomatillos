@@ -14,7 +14,7 @@ let apiCalls = {
     
     fetchAPIData(type) {
         return fetch(`${baseURL}${type}`)
-        .then(response => response.json())
+        .then(this.checkForErr)
       }
 
 
