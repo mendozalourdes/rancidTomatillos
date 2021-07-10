@@ -21,7 +21,6 @@ class App extends React.Component {
       return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(response => response.json())
       .then(movies => this.setState({movies: movies.movies}))
-  
     }
 
     returnHome = () => {
@@ -49,6 +48,11 @@ class App extends React.Component {
                                         title={this.state.selectedMovie.title}
                                         rating={this.state.selectedMovie.average_rating}
                                         releaseDate={this.state.selectedMovie.release_date}
+                                        budget={this.state.selectedMovie.budget}
+                                        revenue={this.state.selectedMovie.revenue}
+                                        tagline={this.state.selectedMovie.tagline}
+                                        genres={this.state.selectedMovie.genres}
+                                        overview={this.state.selectedMovie.overview}
                                         returnHome={this.returnHome}
                                       />
                                     : <MoviesRepo 
