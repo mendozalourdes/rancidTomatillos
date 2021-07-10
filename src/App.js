@@ -3,6 +3,7 @@ import movieData from "./movieData"
 import React from "react"
 import MoviesRepo from "./components/MoviesRepo/MoviesRepo"
 import SelectedMovie from "./components/SelectedMovie/SelectedMovie"
+import apiCalls from "./apiCalls"
 
 class App extends React.Component {
     constructor() {
@@ -18,8 +19,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-      return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-      .then(response => response.json())
+    apiCalls.fetchAPIData("movies")
       .then(movies => this.setState({movies: movies.movies}))
     }
 
@@ -28,8 +28,7 @@ class App extends React.Component {
     }
 
     showMovieDetails = (id) => {
-      return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(response => response.json())
+    apiCalls.fetchAPIData(`movies/${id}`)
       .then(selectedMovie => this.setState({selectedMovie: selectedMovie.movie}))
     } 
 
