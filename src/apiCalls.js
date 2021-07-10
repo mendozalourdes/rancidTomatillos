@@ -22,3 +22,5 @@ let apiCalls = {
 
 
 export default apiCalls;
+
+// .then(response => this.checkForErr(response))
