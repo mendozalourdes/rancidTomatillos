@@ -29,10 +29,9 @@ class App extends React.Component {
     }
 
     showMovieDetails = (id) => {
-      const foundMovie = this.state.movies.find(movie => {
-        return movie.id === id
-      })
-      this.setState({selectedMovie: foundMovie})
+      return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+      .then(response => response.json())
+      .then(selectedMovie => this.setState({selectedMovie: selectedMovie.movie}))
     } 
 
     render() {
