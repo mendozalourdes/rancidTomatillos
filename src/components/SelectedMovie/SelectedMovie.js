@@ -5,8 +5,30 @@ const SelectedMovie = (props) => {
     const { id, poster, backdrop, title, rating, releaseDate} = props
     return (
         <section className="selected-movie">
-            <div>
-                <img src={backdrop} alt={title} className="backdrop"/>
+            <div className="sidebar-backdrop-container">
+             <aside className="sidebar">
+                <h3>{releaseDate}</h3>
+                <h3>{rating}</h3>
+                {/* <h3>{budget}</h3>
+                <h3>{revenue}</h3>
+                <h3>{runtime}</h3> */}
+            </aside>
+            <div className="backdrop-container">
+                    <img src={backdrop} alt={title} className="backdrop"/>
+            </div>
+            </div>
+            <div className="poster-container">
+                <div className="movie-info">
+                    <h3>{title}</h3>
+                <article className="overview">
+                    <h3>this is a movie about blah</h3>
+                {/* <h3>{overview}</h3> */}
+                </article>
+                </div>
+                <div>
+                    <img className="movie-poster" src={poster}/>
+                </div>
+                
             </div>
             <aside className="sidebar">
                 <h3>{releaseDate}</h3>
@@ -31,4 +53,4 @@ const SelectedMovie = (props) => {
     )
 }
 
-export default SelectedMovie
+export default SelectedMovie;
