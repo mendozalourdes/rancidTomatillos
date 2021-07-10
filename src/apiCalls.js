@@ -4,7 +4,7 @@ let apiCalls = {
 
     checkForErr (response)  {
         if(response.status >= 500) {
-          return 'Uhoh! Something is wrong with our system. Please try back later.'
+          return "Our servers are currently down. Please try again."
         } else if (!response.ok) {
           return 'Something went wrong. Please try again later.'
         } else {
@@ -22,5 +22,3 @@ let apiCalls = {
 
 
 export default apiCalls;
-
-// .then(response => this.checkForErr(response))
