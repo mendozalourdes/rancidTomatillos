@@ -8,9 +8,20 @@ class App extends React.Component {
     constructor() {
       super()
       this.state = {
-        movies: movieData.movies,
+        movies: [
+
+        ],
+
+        // movies: movieData.movies,
         selectedMovie: ""
       }
+    }
+
+    componentDidMount() {
+      return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+      .then(response => response.json())
+      .then(movies => this.setState({movies: movies.movies}))
+  
     }
 
     returnHome = () => {
@@ -49,6 +60,7 @@ class App extends React.Component {
         </main>
       );
     }
+
 
 }
 
