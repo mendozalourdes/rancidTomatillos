@@ -2,7 +2,7 @@ import React from "react"
 import "./SelectedMovie.css"
 
 const SelectedMovie = (props) => {
-    const { id, poster, backdrop, title, rating, releaseDate, budget, revenue, runtime, overview, tagline} = props
+    const { poster, backdrop, title, rating, releaseDate, budget, revenue, runtime, overview, tagline} = props
     return (
         <section className="selected-movie">
             <div className="sidebar-backdrop-container">
