@@ -1,9 +1,9 @@
 import './App.css';
-import movieData from "./movieData"
+// import movieData from "./movieData"
 import React from "react"
-import MoviesRepo from "./components/MoviesRepo/MoviesRepo"
-import SelectedMovie from "./components/SelectedMovie/SelectedMovie"
-import apiCalls from "./apiCalls"
+import MoviesRepo from "../MoviesRepo/MoviesRepo"
+import SelectedMovie from "../SelectedMovie/SelectedMovie"
+import apiCalls from "../../apiCalls"
 
 class App extends React.Component {
     constructor() {
