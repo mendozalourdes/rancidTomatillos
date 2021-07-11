@@ -2,7 +2,7 @@ import React from "react"
 import './Movie.css'
 
 const Movie = (props) => {
-    const { id, title, image } = props
+    const { id, image } = props
     return(
         <div className="poster-container">
             <img className="movie-poster" src={image}/>
