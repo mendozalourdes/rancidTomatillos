@@ -12,7 +12,7 @@ describe('User visits the homepage tests', () => {
     it('Should show the user a selection of movies from a database upon page load', () => {
         cy.fixture('movies.json')
             .then(mockData => {
-                cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+                cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
                     statusCode: 201, 
                     delay: 100,
                     body: mockData
@@ -23,27 +23,21 @@ describe('User visits the homepage tests', () => {
 
     it('Should show the user an error message if a 400 error is encountered', () => {
         cy.fixture('movies.json')
-            .then(mockData => {
-                cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+                cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2movies/1', {
                     statusCode: 404, 
                     body: {
                         message: 'Something went wrong. Please try again later.'
-                    }
-                })
-
+                }
                 })
             });
 
     it('Should show the user an error message if a 500 error is encountered', () => {
         cy.fixture('movies.json')
-            .then(mockData => {
             cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
                 statusCode: 501, 
                 body: {
                     message: "Our servers are currently down. Please try again."
                     }
-                })
-
                 })
             });
 
