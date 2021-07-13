@@ -77,6 +77,10 @@ describe("Selected Movie View", () => {
     })
 });
 
+it("should not show any other movie's data", () => {
+    cy.get(".poster-container")
+        .should("not.exist")
+})
 
 // Sad path: it(“should not show any other movie data”)
 // It (should have a URL path)
