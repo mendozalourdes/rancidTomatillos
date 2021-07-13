@@ -75,17 +75,22 @@ describe("Selected Movie View", () => {
         cy.get(".sidebar")
             .contains("2019-12-04")
     })
+    
+    it("should not show any other movie's data", () => {
+        cy.get(".poster-container")
+            .should("not.exist")
+    })
+
+    it("should have a URL path", () => {
+        cy.url().should("include", "/1")
+    })
+
+    it("should have a return home button", () => {
+        cy.get("button")
+            .contains("Return Home")
+            .click()
+            .url().should("include", "/1")
+    })
 });
 
-it("should not show any other movie's data", () => {
-    cy.get(".poster-container")
-        .should("not.exist")
-})
 
-// Sad path: it(“should not show any other movie data”)
-// It (should have a URL path)
-// It (should have a return home button)
-// cy.get(“button”)
-// cy.contains(“more info”)
-// cy.click()
-// For after Router: .url().should(“include”, “/movie name/id”)
