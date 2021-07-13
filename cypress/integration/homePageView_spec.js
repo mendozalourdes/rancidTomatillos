@@ -38,6 +38,7 @@ describe('User visits the homepage tests', () => {
                 body: {
                     message: "Our servers are currently down. Please try again."
                     }
+
                 })
             });
 
