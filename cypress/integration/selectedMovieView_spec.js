@@ -2,7 +2,7 @@
 describe("Selected Movie View", () => {
     beforeEach(() => {
         //connect to fixture and fake an intercept
-        cy.intercept('GET', '/movies', { fixture: 'movies.json' }).as("movies")
+        //cy.intercept('GET', '/movies', { fixture: 'movies.json' }).as("movies")
 
         cy.visit('http://localhost:3000');
 
@@ -23,44 +23,61 @@ describe("Selected Movie View", () => {
                     tagline: "It's a movie!" 
                 }
             })
+            //mock click on button
             cy.get("#1")
-            .click().should("include", "/1")
+                .click().should("include", "/1")
     });
-
-    it("should show the user the page's title", () => {
-        
-    })
-});
-// beforeEach() => cy.visit(URL HERE), cy.fixture(DATA AND CALLBACK FUNCTION, cy. Intercept base too)
-// it(“should show the user the movie they selected with movie details from the database”)
 // cy.intercept({}) - happy path 201
 // cy.intercept({}) - sad path 400s
 // cy.intercept({}) - sad path 500s
 // cy.intercept({}) - loading 
-// cy.get(h1) - Rancid Tomatillos
-// contains() rancid Tomatillos
-// cy.get(class for backdrop image)
-// find(img)
-// should() be visible
-// cy.get(class for poster)
-// find(img)
-// should() be visible
-// cy.get(element for movie title)
-// contains() movie title
-// cy.get(element for overview)
-// contains() fragment of overview
-// cy.get(element for genre)
-// contains() genre name
-// cy.get(element for tagline)
-// contains() fragment of tagline
-// cy.get(element for budget)
-// contains() budget num
-// cy.get(element for revenue)
-// contains() revenue num
-// cy.get(element for release date)
-// contains() release date
-// cy.get(element for rating)
-// contains() rating num
+    it("should show the user the page's title", () => {
+        cy.get("h1")
+            .contains("Rancid Tomatillos")
+    })
+
+    it("should show the user the movie they selected with movie details from the database", () => {
+        //backdrop
+        cy.get(".backdrop-container")
+            .find("img")
+            .should("be.visible")
+
+        //poster
+        cy.get(".movie-poster")
+            .find("img")
+            .should("be.visible")
+
+        //movie title
+        cy.get(".movie-title")
+            .contains("Fake Movie Title")
+
+        //overview
+        cy.get(".overview")
+            .contains("Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!")
+        
+        //tagline
+        cy.get(".title-tagline")
+            .contains("It's a movie!")
+
+        //runtime
+        cy.get(".sidebar")
+            .contains("139")
+
+        //revenue
+        cy.get(".sidebar")
+            .contains("100853753")
+
+        //budget
+        cy.get(".sidebar")
+            .contains("63000000")
+
+        //release date
+        cy.get(".sidebar")
+            .contains("2019-12-04")
+    })
+});
+
+
 // Sad path: it(“should not show any other movie data”)
 // It (should have a URL path)
 // It (should have a return home button)
