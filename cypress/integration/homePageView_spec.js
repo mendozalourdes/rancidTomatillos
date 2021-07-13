@@ -14,9 +14,11 @@ describe('User visits the homepage tests', () => {
             .then(mockData => {
                 cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
                     statusCode: 201, 
+                    delay: 100,
                     body: mockData
                 })
                 })
+                cy.get('img').should('have.class', 'movie-poster')    
             });
 
     it('Should show the user an error message if a 400 error is encountered', () => {
@@ -46,12 +48,9 @@ describe('User visits the homepage tests', () => {
             });
 
         it('Should have a "more info" button for each poster', () => {
+            cy.wait(2000)
             cy.get('button').should('have.length', 40).contains('More Info').click()
          });
 
-         
-
-
-
-
     }); 
+
