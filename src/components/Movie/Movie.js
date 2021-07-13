@@ -6,7 +6,7 @@ const Movie = (props) => {
     return(
         <div className="poster-container">
             <img className="movie-poster" src={image}/>
-            <button onClick={() => props.showMovieDetails(id)}>More Info</button>
+            <button id={id} onClick={() => props.showMovieDetails(id)}>More Info</button>
         </div>
     )
 }
