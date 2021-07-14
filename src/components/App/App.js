@@ -54,8 +54,7 @@ class App extends React.Component {
             <Route
               path="/:id" render={({match}) => {
                 const chosenMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id)) 
-                console.log("chosen", match)
-
+                console.log("chosen", chosenMovie)
                 return <SelectedMovie {...chosenMovie}/>
               }}/>
 
