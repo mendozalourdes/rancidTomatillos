@@ -24,7 +24,7 @@
       display: flex;
       justify-content: flex-end;
       box-shadow: inset 0px 0px 500px rgba(0,0,0);
-
+      position: relative;
   }
 
   .poster-holder {
@@ -72,11 +72,12 @@
 
 .sidebar {
     font-size: .75em;
-    border: 5px dotted yellow;
+    /* border: 5px dotted yellow; */
     margin-left: 2em;
     width: 12vw;
     height: 52vh;
-
+    position: absolute;;
+    color: white;
 }
 
 .overview {
