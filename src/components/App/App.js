@@ -3,6 +3,7 @@ import React from "react"
 import MoviesRepo from "../MoviesRepo/MoviesRepo"
 import SelectedMovie from "../SelectedMovie/SelectedMovie"
 import apiCalls from "../../apiCalls"
+import { Route } from 'react-router-dom';
 
 class App extends React.Component {
     constructor() {
@@ -41,11 +42,25 @@ class App extends React.Component {
     render() {
       return (
         <main>
-          <header> 
-            <h1 className="app-title">Rancid Tomatillos</h1>
-          </header>
+            <nav>
+              <h1 className="app-title">Rancid Tomatillos</h1>
+            </nav>
           {this.state.error && <h2>{this.state.error}</h2>}
           {/* selected movie within conditional */}
+            <Route exact path="/" >
+              <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
+            </Route>
+
+            <Route
+              path="/:id" render={({match}) => {
+                const chosenMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id)) 
+                console.log("chosen", match)
+
+                return <SelectedMovie {...chosenMovie}/>
+              }}/>
+
+
+{/* 
           {this.state.movies && this.state.selectedMovie ? <SelectedMovie 
                                         key={this.state.selectedMovie.id} 
                                         poster={this.state.selectedMovie.poster_path} 
@@ -64,7 +79,7 @@ class App extends React.Component {
                                         movies={this.state.movies} 
                                         showMovieDetails={this.showMovieDetails}
                                       /> 
-          }                         
+          }                          */}
         </main>
       );
     }

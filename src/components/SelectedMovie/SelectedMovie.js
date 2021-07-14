@@ -20,7 +20,6 @@ const SelectedMovie = (props) => {
             </div>
             <div className="poster-container">
                 <div className="movie-info">
-                    {/* <h3 className="movie-title">{title}</h3> */}
                 <article className="overview">
                     <h3>{tagline}</h3>
                     
@@ -34,12 +33,6 @@ const SelectedMovie = (props) => {
                 </div>
                 
             </div>
-            {/* <article className="genres">
-                <h3>{genres}</h3>
-            </article> */}
-            {/* <section className="title-tagline">
-                <h3>Tagline: {tagline}</h3>
-            </section> */}
             <button className="border" onClick={() => props.returnHome()}>Return Home</button>
         </section>
     )
