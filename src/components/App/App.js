@@ -55,8 +55,8 @@ class App extends React.Component {
               path="/movies/:id" render={() => {
                 // const chosenMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id)) 
                 // console.log("chosen", match)
-                console.log("state", this.state.movies)
-                console.log("select", this.state.selectedMovie)
+                // console.log("state", this.state.movies)
+                // console.log("select", this.state.selectedMovie)
                 // console.log("chosen", chosenMovie)
                 return <SelectedMovie {...this.state.selectedMovie}/>
               }}/>
