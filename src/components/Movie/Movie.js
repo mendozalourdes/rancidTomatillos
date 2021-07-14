@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Movie = (props) => {
     const { id, image } = props
     return(
-        <Link to={`/${id}`}>
+        <Link to={`/movies/${id}`}>
         <div className="poster-container">
             <img className="movie-poster" src={image}/>
             <button id={id} onClick={() => props.showMovieDetails(id)}>More Info</button>

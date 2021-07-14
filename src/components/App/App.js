@@ -13,7 +13,7 @@ class App extends React.Component {
 
         ],
         error: "",
-        selectedMovie: ""
+        selectedMovie: {}
       }
     }
 
@@ -52,10 +52,13 @@ class App extends React.Component {
             </Route>
 
             <Route
-              path="/:id" render={({match}) => {
-                const chosenMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id)) 
-                console.log("chosen", chosenMovie)
-                return <SelectedMovie {...chosenMovie}/>
+              path="/movies/:id" render={() => {
+                // const chosenMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id)) 
+                // console.log("chosen", match)
+                console.log("state", this.state.movies)
+                console.log("select", this.state.selectedMovie)
+                // console.log("chosen", chosenMovie)
+                return <SelectedMovie {...this.state.selectedMovie}/>
               }}/>
 
 

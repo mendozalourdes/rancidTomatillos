@@ -3,6 +3,7 @@ import "./SelectedMovie.css"
 
 const SelectedMovie = (props) => {
     const { poster_path, backdrop_path, title, average_rating, release_date, budget, revenue, runtime, overview, tagline} = props
+    console.log("props", overview)
     return (
         <section className="selected-movie">
               <h3 className="movie-title">{title}</h3>
