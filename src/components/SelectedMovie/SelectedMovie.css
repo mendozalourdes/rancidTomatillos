@@ -23,7 +23,7 @@
     justify-content: space-between;
 }
 
-.movie-poster {
+.selected-movie-poster {
     border-radius: 1em;
     box-shadow: 7px 2px 20px 0px;
     padding: 10px 10px 10px 10px;
