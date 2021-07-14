@@ -10,10 +10,9 @@ class App extends React.Component {
       super()
       this.state = {
         movies: [
-
         ],
         error: "",
-        selectedMovie: {}
+        selectedMovie: ""
       }
     }
 
@@ -35,6 +34,7 @@ class App extends React.Component {
     }
 
     showMovieDetails = (id) => {
+      this.setState({selectedMovie: ""})
     apiCalls.fetchAPIData(`/movies/${id}`)
       .then(selectedMovie => this.setState({selectedMovie: selectedMovie.movie}))
     } 
@@ -58,7 +58,7 @@ class App extends React.Component {
                 // console.log("state", this.state.movies)
                 // console.log("select", this.state.selectedMovie)
                 // console.log("chosen", chosenMovie)
-                return <SelectedMovie {...this.state.selectedMovie}/>
+                return <SelectedMovie {...this.state.selectedMovie} returnHome={this.returnHome} />
               }}/>
 
 

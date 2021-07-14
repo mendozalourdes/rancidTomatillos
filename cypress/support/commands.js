@@ -30,14 +30,19 @@ Cypress.Commands.add('loadMain', () => {
 
     const baseURL = "https://rancid-tomatillos.herokuapp.com/api/v2"
 
-    cy.visit(`${baseURL}`)
+    cy.visit('http://localhost:3000')
     
     cy.intercept(`${baseURL}/movies`, {
         fixture: "movies"
     });
 
-    cy.intercept(`${baseURL}/1`, {
-        movie: {
+    // cy.visit('http://localhost:3000')
+    //     .get("#1")
+    //     .click()
+
+    cy.intercept("GET", `${baseURL}/movies/1`, {
+        statusCode: 201,
+        body: { movie: {
                 "id": 1,  
                 "title": "Fake Movie Title", 
                 "poster_path": "https://image.tmdb.org/t/p/original//7G2VvG1lU8q758uOqU6z2Ds0qpA.jpg", 
@@ -49,12 +54,12 @@ Cypress.Commands.add('loadMain', () => {
                 "revenue": 100853753, 
                 "runtime": 139, 
                 "tagline": "It's a movie!" 
-            }
+            }}
     });
 
     cy.visit('http://localhost:3000')
         .get("#1")
         .click()
-        //.should("include", "/1")
+        // .should("include", "/1")
 
 });

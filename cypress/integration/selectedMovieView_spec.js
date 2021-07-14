@@ -100,7 +100,7 @@ describe("Selected Movie View", () => {
             .should("be.visible")
 
         //poster
-        cy.get(".movie-poster")
+        cy.get(".selected-movie-poster")
             .should("be.visible")
 
         //movie title
@@ -112,7 +112,7 @@ describe("Selected Movie View", () => {
             .contains("Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!")
         
         //tagline
-        cy.get(".title-tagline")
+        cy.get(".tagline")
             .contains("It's a movie!")
 
         //runtime

@@ -2,12 +2,12 @@ import React from "react"
 import "./SelectedMovie.css"
 
 const SelectedMovie = (props) => {
-    const { poster_path, backdrop_path, title, average_rating, release_date, budget, revenue, runtime, overview, tagline} = props
+    const { poster_path, backdrop_path, genres, title, average_rating, release_date, budget, revenue, runtime, overview, tagline} = props
 
     return (
         <section className="selected-movie">
               <h3 className="movie-title">{title}</h3>
-              <h4 className="">{tagline}</h4>
+              <h4 className="tagline">{tagline}</h4>
             <div className="sidebar-backdrop-container">
              <aside className="sidebar">
                 <h3>Released: {release_date}</h3>
@@ -30,7 +30,7 @@ const SelectedMovie = (props) => {
                 </article>
                 </div>
                 <div>
-                    <img className="movie-poster" src={poster_path}/>
+                    <img className="selected-movie-poster" src={poster_path}/>
                 </div>
                 
             </div>
