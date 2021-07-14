@@ -40,7 +40,7 @@ const SelectedMovie = (props) => {
             {/* <section className="title-tagline">
                 <h3>Tagline: {tagline}</h3>
             </section> */}
-            <button className="border" onClick={() => props.returnHome()}>Return Home</button>
+            <button className="return-home" onClick={() => props.returnHome()}>Return Home</button>
         </section>
     )
 }
