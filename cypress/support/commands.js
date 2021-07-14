@@ -30,6 +30,8 @@ Cypress.Commands.add('loadMain', () => {
 
     const baseURL = "https://rancid-tomatillos.herokuapp.com/api/v2"
 
+    cy.visit(`${baseURL}`)
+    
     cy.intercept(`${baseURL}/movies`, {
         fixture: "movies"
     });
