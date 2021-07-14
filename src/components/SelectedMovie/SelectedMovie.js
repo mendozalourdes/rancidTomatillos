@@ -18,7 +18,7 @@ const SelectedMovie = (props) => {
                     <img src={backdrop} alt={title} className="backdrop"/>
             </div>
             </div>
-            <div className="poster-container">
+            <div className="poster-holder">
                 <div className="movie-info">
                     {/* <h3 className="movie-title">{title}</h3> */}
                 <article className="overview">
@@ -30,7 +30,7 @@ const SelectedMovie = (props) => {
                 </article>
                 </div>
                 <div>
-                    <img className="movie-poster" src={poster}/>
+                    <img className="selected-movie-poster" src={poster}/>
                 </div>
                 
             </div>
