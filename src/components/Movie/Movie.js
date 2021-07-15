@@ -8,7 +8,10 @@ const Movie = (props) => {
         <Link to={`/movies/${id}`}>
         <div className="poster-container">
             <img className="movie-poster" src={image}/>
-            <button id={id} onClick={() => props.showMovieDetails(id)}>More Info</button>
+            <div className="button-container">
+                <button className="info-button" id={id} onClick={() => props.showMovieDetails(id)}>More Info</button>
+            </div>
+            {/* <button id={id} onClick={() => props.showMovieDetails(id)}>More Info</button> */}
         </div>
         </Link>
     )

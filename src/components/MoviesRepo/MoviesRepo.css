@@ -1,10 +1,13 @@
 
   .movie-container {
     display: grid;   
-    grid-template-columns: repeat(3, 3fr);
-    grid-template-rows: repeat(20, 1.5fr);
-    grid-gap: 3%;
-    grid-column-gap: 0%;
+    /* grid-template-columns: repeat(3, 3fr);
+    grid-template-rows: repeat(20, 1.5fr); */
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    grid-gap: 5%;
+    /* grid-column-gap: 0%; */
     height: 105vh;
     margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 2%;
    }
