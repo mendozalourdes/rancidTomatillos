@@ -25,15 +25,17 @@ describe("Selected Movie View", () => {
     })
 // cy.intercept({}) - sad path 500s
     it("should alert the user of a 500 error", () => {
-        cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v1/movies/1", {
-            statusCode: 501,
-            body: {
-                message: "Our servers are currently down. Please try again."
-            }
-            })
-        cy.visit('http://localhost:3000')
-            .get("#1")
+        cy.get("#1")
             .click()
+        cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v1/movies/1", {
+            statusCode: 500
+            // body: {
+            //     message: "Our servers are currently down. Please try again."
+            // }
+            })
+        // cy.visit('http://localhost:3000')
+        //     .get("#1")
+        //     .click()
         cy.get("h2")
             .contains("Our servers are currently down. Please try again.")
     })
