@@ -4,52 +4,22 @@
 describe("Selected Movie View", () => {
     beforeEach(() => {
         cy.loadMain()
-        //how to connect to fixture??
-        //cy.intercept('GET', '/movies', { fixture: 'movies.json' }).as("movies")
-        //connect fixture, visit page, intercept fetch for all movies
-        //click on button
-
-        //visit site
-        // cy.visit('http://localhost:3000');
-        //intercept fetch for all movies here
-        //then click on it to find
-
-        //mock click on button
-        // cy.get("#1")
-        //     .click().should("include", "/1")
-
-        //intercept click on movie detail to route to correct movie id file path
-        // happy path 201
-            // cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/1", {
-            //     statusCode: 200,
-            //     body: {
-            //         movie: {
-            //             id: 1, 
-            //             title: "Fake Movie Title", 
-            //             poster_path: "https://image.tmdb.org/t/p/original//7G2VvG1lU8q758uOqU6z2Ds0qpA.jpg", 
-            //             backdrop_path: "https://image.tmdb.org/t/p/original//oazPqs1z78LcIOFslbKtJLGlueo.jpg", 
-            //             release_date: "2019-12-04", 
-            //             overview: "Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!", 
-            //             average_rating: 6, 
-            //             genres: ["Drama"], 
-            //             budget:63000000, 
-            //             revenue:100853753, 
-            //             runtime:139, 
-            //             tagline: "It's a movie!" 
-            //         }
-            //     }
-            // })
-            //mock network responses for errors?
     });
 // cy.intercept({}) - sad path 400s
     it("should alert the user of a 404 error", () => {
-        cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2movies/1", {
+        cy.get("#1")
+            .click()
+        cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2//movies/1", {
             statusCode: 404,
             body: {
                 message: "Something went wrong. Please try again later."
             }
             })
-
+        // cy.visit('http://localhost:3000')
+        //     .get("#1")
+        //     .click()
+            // cy.get("#1")
+            //   .click()
         cy.get("h2")
             .contains("Something went wrong. Please try again later.")
     })
@@ -61,6 +31,9 @@ describe("Selected Movie View", () => {
                 message: "Our servers are currently down. Please try again."
             }
             })
+        cy.visit('http://localhost:3000')
+            .get("#1")
+            .click()
         cy.get("h2")
             .contains("Our servers are currently down. Please try again.")
     })
@@ -88,6 +61,7 @@ describe("Selected Movie View", () => {
     //         .contains("Loading...")
     // })
 
+    //Happy path test for 201 fetch call
 
     it("should show the user the page's title", () => {
         cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/1", {

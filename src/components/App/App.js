@@ -36,7 +36,15 @@ class App extends React.Component {
     showMovieDetails = (id) => {
       this.setState({selectedMovie: ""})
     apiCalls.fetchAPIData(`/movies/${id}`)
-      .then(selectedMovie => this.setState({selectedMovie: selectedMovie.movie}))
+    .then(response => {
+      if(typeof response === 'string') {
+        this.setState({ error: response })
+      } else {
+        this.setState({selectedMovie: response.movie})
+      }
+    })
+      // .then(selectedMovie => this.setState({selectedMovie: selectedMovie.movie}))
+      .catch(err => err.message)
     } 
 
     render() {
