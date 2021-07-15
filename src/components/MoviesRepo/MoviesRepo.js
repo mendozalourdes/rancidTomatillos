@@ -12,8 +12,14 @@ const MoviesRepo = props => {
                     />
     })
     return (
-        <div className="movie-container">
-            {movieComponents}
+        <div>
+            <section className="random-movie-section">
+            {/* this is where our RandomMovie component will go */}  
+                <img className="random-movie-backdrop" src="https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg"/>
+            </section>
+            <section className="movie-container">
+                {movieComponents}
+            </section>
         </div>
         )
 }

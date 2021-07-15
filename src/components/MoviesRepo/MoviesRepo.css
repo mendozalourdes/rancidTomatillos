@@ -11,3 +11,19 @@
     margin-right: 2em;
     margin-top: 2%;
    }
+
+   .random-movie-section {
+    width: 100%;
+    max-height: 45%
+  }
+  
+  .random-movie-backdrop {
+    /* height: 50%; */
+    width: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    position: relative;
+    z-index: -2;
+    box-shadow: 0px 8px 15px 0px #341555;
+  }
+  
