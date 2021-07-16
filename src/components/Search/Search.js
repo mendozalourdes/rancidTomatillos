@@ -27,15 +27,13 @@ class Search extends React.Component {
         this.setState({ [event.target.name]: event.target.value })
         const filteredFilms = this.state.movies.filter(movie => {
             return movie.title.includes(this.state.search)
-          })
+          }).map(movie => {
+            return <option value={movie.title}></option>
+        })
         this.setState({ filteredMovies: filteredFilms })
       }
 
     render() {
-        console.log(this.state.filteredMovies)
-        const options = this.state.filteredMovies.map(movie => {
-            return <option value={movie.title}></option>
-        })
         return (
         <nav>
             <input 
@@ -47,7 +45,7 @@ class Search extends React.Component {
                 onChange={this.handleChange}
             />
             <datalist id="movies">
-                {options}
+                {this.state.filteredMovies}
             </datalist>
             <button className="search-button" >search</button>
         </nav>   
