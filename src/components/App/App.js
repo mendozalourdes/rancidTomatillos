@@ -59,13 +59,13 @@ class App extends React.Component {
                 {!this.state.movies.length && !this.state.error.length &&
         <img className="loading-image" src={ loadingImage }></img>
         }
-
+{/* 
         {!this.state.selectedMovie && !this.state.error.length && 
                   <h2> Loading Movie Details...</h2> 
                   }
          {!this.state.selectedMovie && !this.state.error.length && 
               <img className="loading-image" src={ loadingImage }></img>
-              }     
+              }      */}
       
           {this.state.error && <h2>{this.state.error}</h2>}
             <Route exact path="/" >
