@@ -3,6 +3,8 @@ import "./SelectedMovie.css"
 import React, { Component} from "react";
 import apiCalls from "../../apiCalls"
 import loadingImage from "../../assets/loadingImage.jpg";
+import { Link } from 'react-router-dom'
+
 
 
 
@@ -73,7 +75,9 @@ class SelectedMovie extends Component {
           <div className="movie-info">
           <article className="overview">
               <h3>{overview}</h3>
-              <button className="return-home" onClick={() => this.returnHome()}>Return Home</button>
+          <Link to={"/"}>
+              <button className="return-home">Return Home</button>
+          </Link>
           </article>
           </div>
           <div>
