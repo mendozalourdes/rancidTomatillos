@@ -34,20 +34,7 @@ class App extends React.Component {
     returnHome = () => {
       this.setState({selectedMovie: ""})
     }
-
-    showMovieDetails = (id) => {
-      this.setState({selectedMovie: ""})
-      apiCalls.fetchAPIData(`/movies/${id}`)
-      .then(response => {
-        if(typeof response === 'string') {
-          this.setState({ error: response })
-        } else {
-            console.log("response", response)
-            this.setState({selectedMovie: response.movie})
-          }
-        })
-        .catch(err => err.message)
-    } 
+ 
 
     render() {
       return (
@@ -72,7 +59,7 @@ class App extends React.Component {
 
             <Route
               path="/movies/:id" render={(props) => {
-            
+            console.log("props", props)
                 return <SelectedMovie {...props } selectedMovie={this.state.selectedMovie} returnHome={this.returnHome} />
               }}/>
 
