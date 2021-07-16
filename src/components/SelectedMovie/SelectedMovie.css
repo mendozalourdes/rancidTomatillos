@@ -52,16 +52,17 @@
   margin: 0 0 0 0;
   display: flex;
   justify-content: center;
-  margin-bottom: .5em;
+  /* margin-bottom: .5em; */
+  color: black;
 }
 
 .sidebar {
-  font-size: .75em;
+  /* font-size: .75em; */
   margin-left: 2em;
   width: 12vw;
   height: 52vh;
-  position: absolute;;
-  color: white;
+  position: absolute;
+  /* color: white; */
 }
 
 .overview {
