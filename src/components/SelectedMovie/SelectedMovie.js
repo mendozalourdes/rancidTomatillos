@@ -13,7 +13,7 @@ class SelectedMovie extends Component {
         super(props);
         console.log("props", props)
         this.state= {
-            selectedMovie: props.selectedMovie,
+            selectedMovie: "",
             error: "",
           
         }

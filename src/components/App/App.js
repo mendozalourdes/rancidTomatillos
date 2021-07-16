@@ -13,7 +13,6 @@ class App extends React.Component {
         movies: [
         ],
         error: "",
-        selectedMovie: ""
       }
     }
 
@@ -30,11 +29,6 @@ class App extends React.Component {
       .catch(err => err.message)
 }
 
-
-    returnHome = () => {
-      this.setState({selectedMovie: ""})
-    }
- 
 
     render() {
       return (
@@ -59,8 +53,7 @@ class App extends React.Component {
 
             <Route
               path="/movies/:id" render={(props) => {
-            console.log("props", props)
-                return <SelectedMovie {...props } selectedMovie={this.state.selectedMovie} returnHome={this.returnHome} />
+                return <SelectedMovie {...props }  />
               }}/>
 
               
