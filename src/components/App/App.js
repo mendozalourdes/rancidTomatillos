@@ -4,6 +4,7 @@ import MoviesRepo from "../MoviesRepo/MoviesRepo"
 import SelectedMovie from "../SelectedMovie/SelectedMovie"
 import apiCalls from "../../apiCalls"
 import { Route } from 'react-router-dom';
+import loadingImage from "../../assets/loadingImage.jpg";
 
 class App extends React.Component {
     constructor() {
@@ -12,7 +13,6 @@ class App extends React.Component {
         movies: [
         ],
         error: "",
-        selectedMovie: ""
       }
     }
 
@@ -30,23 +30,6 @@ class App extends React.Component {
 }
 
 
-    returnHome = () => {
-      this.setState({selectedMovie: ""})
-    }
-
-    showMovieDetails = (id) => {
-      this.setState({selectedMovie: ""})
-      apiCalls.fetchAPIData(`/movies/${id}`)
-        .then(response => {
-          if(typeof response === 'string') {
-            this.setState({ error: response })
-          } else {
-            this.setState({selectedMovie: response.movie})
-          }
-        })
-        .catch(err => err.message)
-    } 
-
     render() {
       return (
         <main>
@@ -56,16 +39,24 @@ class App extends React.Component {
               <input className="search-box" type="search"/> 
               <button className="search-button" >search</button>
             </nav>
-          </header>
+            </header>
+            {!this.state.movies.length && !this.state.error.length &&
+            <h2> Loading Movies...</h2> 
+            }
+                {!this.state.movies.length && !this.state.error.length &&
+        <img className="loading-image" src={ loadingImage }></img>
+        }
           {this.state.error && <h2>{this.state.error}</h2>}
-          <Route exact path="/" >
+            <Route exact path="/" >
               <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
-          </Route>
+            </Route>
 
-          <Route
-            path="/movies/:id" render={() => {
-            return <SelectedMovie {...this.state.selectedMovie} returnHome={this.returnHome} />}
-          }/>
+            <Route
+              path="/movies/:id" render={(props) => {
+                return <SelectedMovie {...props }  />
+              }}/>
+
+              
         </main>
       );
     }
