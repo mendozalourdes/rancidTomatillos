@@ -18,15 +18,16 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-    apiCalls.fetchAPIData("/movies")
-    .then(response => {
-      if(typeof response === 'string') {
-        this.setState({ error: response })
-      } else {
-        this.setState({movies: response.movies})
-      }
-    })
-    .catch(err => err.message)
+      apiCalls.fetchAPIData("/movies")
+        .then(response => {
+          if(typeof response === 'string') {
+            this.setState({ error: response })
+          } else {
+            this.setState({movies: response.movies})
+          }
+          console.log(this.state.movies[0].backdrop_path)
+      })
+      .catch(err => err.message)
 }
 
 
@@ -36,22 +37,25 @@ class App extends React.Component {
 
     showMovieDetails = (id) => {
       this.setState({selectedMovie: ""})
-    apiCalls.fetchAPIData(`/movies/${id}`)
-    .then(response => {
-      if(typeof response === 'string') {
-        this.setState({ error: response })
-      } else {
-        this.setState({selectedMovie: response.movie})
-      }
-    })
-      .catch(err => err.message)
+      apiCalls.fetchAPIData(`/movies/${id}`)
+        .then(response => {
+          if(typeof response === 'string') {
+            this.setState({ error: response })
+          } else {
+            this.setState({selectedMovie: response.movie})
+          }
+        })
+        .catch(err => err.message)
     } 
 
     render() {
       return (
         <main>
+          <header>
+            <h1 className="app-title">Rancid Tomatillos</h1>
             <nav>
-              <h1 className="app-title">Rancid Tomatillos</h1>
+              <input className="search-box" type="search"/> 
+              <button className="search-button" >search</button>
             </nav>
             {!this.state.movies.length && !this.state.error.length &&
             <h2> Loading Movies...</h2> 
