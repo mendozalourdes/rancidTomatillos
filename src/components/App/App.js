@@ -17,15 +17,16 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-    apiCalls.fetchAPIData("/movies")
-    .then(response => {
-      if(typeof response === 'string') {
-        this.setState({ error: response })
-      } else {
-        this.setState({movies: response.movies})
-      }
-    })
-    .catch(err => err.message)
+      apiCalls.fetchAPIData("/movies")
+        .then(response => {
+          if(typeof response === 'string') {
+            this.setState({ error: response })
+          } else {
+            this.setState({movies: response.movies})
+          }
+          console.log(this.state.movies[0].backdrop_path)
+      })
+      .catch(err => err.message)
 }
 
 
@@ -35,61 +36,36 @@ class App extends React.Component {
 
     showMovieDetails = (id) => {
       this.setState({selectedMovie: ""})
-    apiCalls.fetchAPIData(`/movies/${id}`)
-    .then(response => {
-      if(typeof response === 'string') {
-        this.setState({ error: response })
-      } else {
-        this.setState({selectedMovie: response.movie})
-      }
-    })
-      // .then(selectedMovie => this.setState({selectedMovie: selectedMovie.movie}))
-      .catch(err => err.message)
+      apiCalls.fetchAPIData(`/movies/${id}`)
+        .then(response => {
+          if(typeof response === 'string') {
+            this.setState({ error: response })
+          } else {
+            this.setState({selectedMovie: response.movie})
+          }
+        })
+        .catch(err => err.message)
     } 
 
     render() {
       return (
         <main>
+          <header>
+            <h1 className="app-title">Rancid Tomatillos</h1>
             <nav>
-              <h1 className="app-title">Rancid Tomatillos</h1>
+              <input className="search-box" type="search"/> 
+              <button className="search-button" >search</button>
             </nav>
+          </header>
           {this.state.error && <h2>{this.state.error}</h2>}
-          {/* selected movie within conditional */}
-            <Route exact path="/" >
+          <Route exact path="/" >
               <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
-            </Route>
+          </Route>
 
-            <Route
-              path="/movies/:id" render={() => {
-                // const chosenMovie = this.state.movies.find(movie => movie.id === parseInt(match.params.id)) 
-                // console.log("chosen", match)
-                // console.log("state", this.state.movies)
-                // console.log("select", this.state.selectedMovie)
-                // console.log("chosen", chosenMovie)
-                return <SelectedMovie {...this.state.selectedMovie} returnHome={this.returnHome} />
-              }}/>
-
-
-{/* 
-          {this.state.movies && this.state.selectedMovie ? <SelectedMovie 
-                                        key={this.state.selectedMovie.id} 
-                                        poster={this.state.selectedMovie.poster_path} 
-                                        backdrop={this.state.selectedMovie.backdrop_path}
-                                        title={this.state.selectedMovie.title}
-                                        rating={this.state.selectedMovie.average_rating}
-                                        releaseDate={this.state.selectedMovie.release_date}
-                                        budget={this.state.selectedMovie.budget}
-                                        revenue={this.state.selectedMovie.revenue}
-                                        tagline={this.state.selectedMovie.tagline}
-                                        genres={this.state.selectedMovie.genres}
-                                        overview={this.state.selectedMovie.overview}
-                                        returnHome={this.returnHome}
-                                      />
-                                    : <MoviesRepo 
-                                        movies={this.state.movies} 
-                                        showMovieDetails={this.showMovieDetails}
-                                      /> 
-          }                          */}
+          <Route
+            path="/movies/:id" render={() => {
+            return <SelectedMovie {...this.state.selectedMovie} returnHome={this.returnHome} />}
+          }/>
         </main>
       );
     }

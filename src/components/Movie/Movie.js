@@ -11,7 +11,6 @@ const Movie = (props) => {
             <div className="button-container">
                 <button className="info-button" id={id} onClick={() => props.showMovieDetails(id)}>More Info</button>
             </div>
-            {/* <button id={id} onClick={() => props.showMovieDetails(id)}>More Info</button> */}
         </div>
         </Link>
     )
