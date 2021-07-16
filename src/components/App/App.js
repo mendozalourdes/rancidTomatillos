@@ -38,10 +38,11 @@ class App extends React.Component {
     showMovieDetails = (id) => {
       this.setState({selectedMovie: ""})
       apiCalls.fetchAPIData(`/movies/${id}`)
-        .then(response => {
-          if(typeof response === 'string') {
-            this.setState({ error: response })
-          } else {
+      .then(response => {
+        if(typeof response === 'string') {
+          this.setState({ error: response })
+        } else {
+            console.log("response", response)
             this.setState({selectedMovie: response.movie})
           }
         })
@@ -57,14 +58,15 @@ class App extends React.Component {
               <input className="search-box" type="search"/> 
               <button className="search-button" >search</button>
             </nav>
+            </header>
             {!this.state.movies.length && !this.state.error.length &&
             <h2> Loading Movies...</h2> 
             }
                 {!this.state.movies.length && !this.state.error.length &&
         <img className="loading-image" src={ loadingImage }></img>
         }
-{/* 
-        {!this.state.selectedMovie && !this.state.error.length && 
+
+        {/* {!this.state.selectedMovie && !this.state.error.length && 
                   <h2> Loading Movie Details...</h2> 
                   }
          {!this.state.selectedMovie && !this.state.error.length && 
@@ -77,17 +79,17 @@ class App extends React.Component {
             </Route>
 
             <Route
-              path="/movies/:id" render={() => {
+              path="/movies/:id" render={(props) => {
               //  {!this.state.selectedMovie && !this.state.error.length &&
               //     <h2> Loading Movie Details...</h2> 
               //     }
               //         {!this.state.selectedMovie && !this.state.error.length &&
               // <img className="loading-image" src={ loadingImage }></img>
               // }
-                return <SelectedMovie {...this.state.selectedMovie} returnHome={this.returnHome} />
+                return <SelectedMovie {...props } selectedMovie={this.state.selectedMovie} returnHome={this.returnHome} />
               }}/>
 
-
+              
         </main>
       );
     }
