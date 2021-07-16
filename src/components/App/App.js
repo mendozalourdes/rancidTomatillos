@@ -5,6 +5,7 @@ import SelectedMovie from "../SelectedMovie/SelectedMovie"
 import Search from "../Search/Search"
 import apiCalls from "../../apiCalls"
 import { Route } from 'react-router-dom';
+import loadingImage from "../../assets/loadingImage.jpg";
 
 class App extends React.Component {
     constructor() {
@@ -13,7 +14,6 @@ class App extends React.Component {
         movies: [
         ],
         error: "",
-        selectedMovie: "",
       }
     }
 
@@ -31,23 +31,6 @@ class App extends React.Component {
 }
 
 
-    returnHome = () => {
-      this.setState({selectedMovie: ""})
-    }
-
-    showMovieDetails = (id) => {
-      this.setState({selectedMovie: ""})
-      apiCalls.fetchAPIData(`/movies/${id}`)
-        .then(response => {
-          if(typeof response === 'string') {
-            this.setState({ error: response })
-          } else {
-            this.setState({selectedMovie: response.movie})
-          }
-        })
-        .catch(err => err.message)
-    } 
-
     render() {
       return (
         <main>
@@ -56,14 +39,16 @@ class App extends React.Component {
             <Search movies={this.state.movies}/>
           </header>
           {this.state.error && <h2>{this.state.error}</h2>}
-          <Route exact path="/" >
+            <Route exact path="/" >
               <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
-          </Route>
+            </Route>
 
-          <Route
-            path="/movies/:id" render={() => {
-            return <SelectedMovie {...this.state.selectedMovie} returnHome={this.returnHome} />}
-          }/>
+            <Route
+              path="/movies/:id" render={(props) => {
+                return <SelectedMovie {...props }  />
+              }}/>
+
+              
         </main>
       );
     }
