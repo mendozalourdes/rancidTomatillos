@@ -7,30 +7,23 @@ class Search extends React.Component {
         this.state = {
             movies: props.movies,
             search: "",
-            filteredMovies: []
+            filteredMovies: [],
+            options: []
         }
     }
-
-    // searchMovies = () => {
-    //     // props.movies.filter(movie => {
-    //     //   return movie.title.includes(this.state.search)
-    //     // }).map(movie => {
-    //     //   return <option>{movie.title}</option>
-    //     // })
-    //     this.filteredMovies.map(movie => {
-    //         return <option>{movie.title}</option>
-    //     })
-    //   }
 
     handleChange = event => {
         // const search = event.target
         this.setState({ [event.target.name]: event.target.value })
+        const searchCase = this.state.search
         const filteredFilms = this.state.movies.filter(movie => {
-            return movie.title.includes(this.state.search)
-          }).map(movie => {
+            const lowerCase = movie.title.toLowerCase()
+            return lowerCase.includes(searchCase)
+          })
+        const listOptions = filteredFilms.map(movie => {
             return <option value={movie.title}></option>
         })
-        this.setState({ filteredMovies: filteredFilms })
+        this.setState({ filteredMovies: filteredFilms, options: listOptions })
       }
 
     render() {
@@ -45,7 +38,7 @@ class Search extends React.Component {
                 onChange={this.handleChange}
             />
             <datalist id="movies">
-                {this.state.filteredMovies}
+                {this.state.options}
             </datalist>
             <button className="search-button" >search</button>
         </nav>   
