@@ -16,6 +16,24 @@ class SelectedMovie extends Component {
           
         }
     }
+    
+    componentDidMount() {
+        this.setState({selectedMovie: ""})
+        apiCalls.fetchAPIData(`/movies/${this.props.match.params.id}`)
+          .then(response => {
+            if(typeof response === 'string') {
+              this.setState({ error: response })
+            } else {
+              this.setState({selectedMovie: response.movie})
+            }
+        })
+        .catch(err => err.message)
+  }
+
+  returnHome = () => {
+    this.setState({selectedMovie: ""})
+  }
+
 
   
 
