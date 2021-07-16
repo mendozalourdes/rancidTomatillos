@@ -2,7 +2,7 @@ import './App.css';
 import React from "react"
 import MoviesRepo from "../MoviesRepo/MoviesRepo"
 import SelectedMovie from "../SelectedMovie/SelectedMovie"
-// import Search from "../Search/Search"
+import Search from "../Search/Search"
 import apiCalls from "../../apiCalls"
 import { Route } from 'react-router-dom';
 
@@ -14,7 +14,6 @@ class App extends React.Component {
         ],
         error: "",
         selectedMovie: "",
-        search: ""
       }
     }
 
@@ -49,35 +48,15 @@ class App extends React.Component {
         .catch(err => err.message)
     } 
 
-    searchMovies = () => {
-      this.state.movies.filter(movie => {
-        return movie.includes(this.state.search)
-      })
-    }
-
-    handleChange = event => {
-      // const search = event.target
-      this.setState({ [event.target.name]: event.target.value })
-    }
-
     render() {
       return (
         <main>
           <header>
             <h1 className="app-title">Rancid Tomatillos</h1>
-            <nav>
-              <input 
-                className="search-box" 
-                type="search"
-                value={this.state.search}
-                onChange={event => this.handleChange(event)}
-              /> 
-              <button className="search-button" >search</button>
-            </nav>
+            <Search movies={this.state.movies}/>
           </header>
           {this.state.error && <h2>{this.state.error}</h2>}
           <Route exact path="/" >
-              {/* <Search /> */}
               <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
           </Route>
 
