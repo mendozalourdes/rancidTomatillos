@@ -32,9 +32,6 @@ class SelectedMovie extends Component {
         .catch(err => err.message)
   }
 
-  returnHome = () => {
-    this.setState({selectedMovie: ""})
-  }
  render() {
 
           const {
