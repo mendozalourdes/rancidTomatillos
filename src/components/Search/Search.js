@@ -1,22 +1,6 @@
 import React from "react"
 import Movie from "../Movie/Movie"
 
-// const Search = props => {
-//     const movieComponents = props.movies.map(movie => {
-//         return <Movie 
-//                     key={movie.id} 
-//                     id={movie.id}
-//                     image={movie.poster_path} 
-//                     showMovieDetails={props.showMovieDetails}
-//                 />
-//     })
-//     return (
-//         <section className="movie-container">
-//             {movieComponents}
-//         </section>
-//     )
-// }
-
 class Search extends React.Component {
     constructor(props) {
         super(props)
@@ -48,9 +32,9 @@ class Search extends React.Component {
       }
 
     render() {
-        console.log(this.filteredMovies)
-        const options = this.filteredMovies.map(movie => {
-            return <option>{movie.title}</option>
+        console.log(this.state.filteredMovies)
+        const options = this.state.filteredMovies.map(movie => {
+            return <option value={movie.title}></option>
         })
         return (
         <nav>
@@ -58,12 +42,13 @@ class Search extends React.Component {
                 className="search-box" 
                 type="search"
                 name="search"
+                list="movies"
                 value={this.state.search}
                 onChange={this.handleChange}
             />
-            <select>
+            <datalist id="movies">
                 {options}
-            </select>
+            </datalist>
             <button className="search-button" >search</button>
         </nav>   
         )
