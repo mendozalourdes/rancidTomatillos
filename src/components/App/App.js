@@ -56,9 +56,10 @@ class App extends React.Component {
             {!this.state.movies.length && !this.state.error.length &&
             <h2> Loading Movies...</h2> 
             }
-          {!this.state.movies.length && !this.state.error.length &&
+                {!this.state.movies.length && !this.state.error.length &&
         <img className="loading-image" src={ loadingImage }></img>
         }
+      
           {this.state.error && <h2>{this.state.error}</h2>}
             <Route exact path="/" >
               <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
