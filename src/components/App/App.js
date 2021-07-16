@@ -4,6 +4,7 @@ import MoviesRepo from "../MoviesRepo/MoviesRepo"
 import SelectedMovie from "../SelectedMovie/SelectedMovie"
 import apiCalls from "../../apiCalls"
 import { Route } from 'react-router-dom';
+import loadingImage from "../../assets/loadingImage.jpg";
 
 class App extends React.Component {
     constructor() {
@@ -52,8 +53,12 @@ class App extends React.Component {
             <nav>
               <h1 className="app-title">Rancid Tomatillos</h1>
             </nav>
+            {!this.state.movies.length && !this.state.error.length &&
+            <h2> Loading Movies...</h2> 
+            }
           {!this.state.movies.length && !this.state.error.length &&
-        <h2> Loading movies...</h2> }
+        <img className="loading-image" src={ loadingImage }></img>
+        }
           {this.state.error && <h2>{this.state.error}</h2>}
             <Route exact path="/" >
               <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
