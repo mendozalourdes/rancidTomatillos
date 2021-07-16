@@ -27,14 +27,13 @@ const SelectedMovie = (props) => {
                 <div className="movie-info">
                 <article className="overview">
                     <h3>{overview}</h3>
+                    <button className="return-home" onClick={() => props.returnHome()}>Return Home</button>
                 </article>
                 </div>
                 <div>
                     <img className="selected-movie-poster" src={poster_path}/>
                 </div>
-                
             </div>
-            <button className="border" onClick={() => props.returnHome()}>Return Home</button>
         </section>
     )
 }
