@@ -1,5 +1,6 @@
 import React from "react"
-import Movie from "../Movie/Movie"
+import MoviesRepo from "../MoviesRepo/MoviesRepo"
+import { Link } from 'react-router-dom'
 
 class Search extends React.Component {
     constructor(props) {

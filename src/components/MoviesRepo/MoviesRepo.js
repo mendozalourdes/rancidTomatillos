@@ -21,10 +21,10 @@ const MoviesRepo = props => {
               <button className="search-button" >search</button>
             </nav>
           </header> */}
-            <section className="random-movie-section">
-            {/* this is where our RandomMovie component will go */}  
+            {/* <section className="random-movie-section">
+            this is where our RandomMovie component will go  
                 <img className="random-movie-backdrop" src="https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg"/>
-            </section>
+            </section> */}
             <section className="movie-container">
                 {movieComponents}
             </section>

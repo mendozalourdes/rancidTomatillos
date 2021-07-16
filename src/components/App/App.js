@@ -39,6 +39,10 @@ class App extends React.Component {
             <Search movies={this.state.movies}/>
           </header>
           {this.state.error && <h2>{this.state.error}</h2>}
+            {/* <section className="random-movie-section">
+            this is where our RandomMovie component will go  
+                <img className="random-movie-backdrop" src="https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg"/>
+            </section> */}
             <Route exact path="/" >
               <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
             </Route>
