@@ -1,6 +1,7 @@
 import React from "react"
 import MoviesRepo from "../MoviesRepo/MoviesRepo"
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
+import Results from "../Results/Results"
 
 class Search extends React.Component {
     constructor(props) {
@@ -29,6 +30,7 @@ class Search extends React.Component {
 
     render() {
         return (
+        <>
         <nav>
             <input 
                 className="search-box" 
@@ -41,8 +43,14 @@ class Search extends React.Component {
             <datalist id="movies">
                 {this.state.options}
             </datalist>
-            <button className="search-button" >search</button>
+            <Link to={"/search"}><button className="search-button" >search</button></Link>
         </nav>   
+
+        <Route
+            path="/search" render={(props) => {
+        return <Results {...props}  />
+        }}/>  
+        </>
         )
     }
 

@@ -25,7 +25,6 @@ class App extends React.Component {
           } else {
             this.setState({movies: response.movies})
           }
-          console.log(this.state.movies[0].backdrop_path)
       })
       .catch(err => err.message)
 }
@@ -52,7 +51,10 @@ class App extends React.Component {
                 return <SelectedMovie {...props }  />
               }}/>
 
-              
+            {/* <Route
+              path="/search" render={() => {
+                return <Results {...props }  />
+              }}/>   */}
         </main>
       );
     }
