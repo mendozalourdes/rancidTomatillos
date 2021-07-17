@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom'
 class SelectedMovie extends Component {
     constructor(props) {
         super(props);
-        console.log("props", props)
         this.state= {
             selectedMovie: "",
             error: "",
