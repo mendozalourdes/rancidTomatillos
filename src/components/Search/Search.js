@@ -2,6 +2,8 @@ import React from "react"
 import MoviesRepo from "../MoviesRepo/MoviesRepo"
 import { NavLink, Link, Route } from 'react-router-dom'
 import Results from "../Results/Results"
+import "./Search.css"
+import { white } from "jest-matcher-utils/node_modules/chalk"
 
 class Search extends React.Component {
     constructor(props) {
@@ -20,7 +22,7 @@ class Search extends React.Component {
         // this.setState({ search: "" })
         this.setState({ [event.target.name]: event.target.value })
         const searchCase = this.state.search.toLowerCase()
-        console.log("search bar", this.state.search)
+        // console.log("search bar", this.state.search)
         // console.log("search state movies", this.state.movies)
         const filteredFilms = this.state.movies.filter(movie => {
             const lowerCase = movie.title.toLowerCase()
@@ -41,7 +43,7 @@ class Search extends React.Component {
         return (
         <>
         <header>
-           <Link to={"/"}> <h1 className="app-title" onClick={this.cleanInputs}>Rancid Tomatillos</h1> </Link>
+           <NavLink to={"/"} style={{ textDecoration: 'none', color: "white" }}> <h1 className="app-title" onClick={this.cleanInputs}>Rancid Tomatillos</h1> </NavLink>
         <nav>
             <input 
                 className="search-box" 
