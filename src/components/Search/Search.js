@@ -17,7 +17,7 @@ class Search extends React.Component {
     handleChange = event => {
         // const search = event.target
         this.setState({ [event.target.name]: event.target.value })
-        const searchCase = this.state.search
+        const searchCase = this.state.search.toLowerCase()
         const filteredFilms = this.state.movies.filter(movie => {
             const lowerCase = movie.title.toLowerCase()
             return lowerCase.includes(searchCase)
@@ -47,9 +47,11 @@ class Search extends React.Component {
         </nav>   
 
         <Route
-            path="/search" render={(props) => {
-        return <Results {...props}  />
+            path="/search" render={() => {
+        return <Results filteredMovies={this.state.filteredMovies}  />
         }}/>  
+        {/* Add a return home button on here too */}
+        {/* style the page */}
         </>
         )
     }
