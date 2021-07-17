@@ -5,7 +5,7 @@ const Results = props => {
 
     return (
         <>
-            <MoviesRepo movies={props.filteredMovies}/>
+            <MoviesRepo movies={props.filteredMovies} cleanInputs={props.cleanInputs}/>
         </>
     )
 }

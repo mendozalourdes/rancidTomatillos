@@ -28,7 +28,7 @@ class Search extends React.Component {
           })
         //   console.log("filteredFilms", this.state.filteredMovies)
         const listOptions = filteredFilms.map(movie => {
-            return <option key={movie.id} value={movie.title}>{movie.title}</option>
+            return <option key={movie.id} value={movie.title} >{movie.title}</option>
         })
         this.setState({ filteredMovies: filteredFilms, options: listOptions })
       }
@@ -57,12 +57,17 @@ class Search extends React.Component {
             <datalist id="movies">
                 {this.state.options}
             </datalist>
-            <Link to={"/search"}><button type="submit" className="search-button" onClick={this.handleChange}>search</button></Link>
+            <Link to={"/search"}>
+                <button 
+                    type="submit" 
+                    className="search-button" 
+                    onSubmit={this.handleChange} 
+                    onClick={this.handleChange}>search</button></Link>
         </nav>  
         </header>
         <Route
            exact path="/search" render={() => {
-        return <Results filteredMovies={this.state.filteredMovies}  />
+        return <Results filteredMovies={this.state.filteredMovies}  cleanInputs={this.cleanInputs}/>
         }}/>
         {/* Add a return home button on here too  page title*/}
         </>

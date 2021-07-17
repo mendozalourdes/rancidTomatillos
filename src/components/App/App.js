@@ -6,7 +6,7 @@ import Search from "../Search/Search"
 import apiCalls from "../../apiCalls"
 // import Results from "../Results/Results"
 import { Route } from 'react-router-dom';
-// import loadingImage from "../../assets/loadingImage.jpg";
+import loadingImage from "../../assets/loadingImage.jpg";
 
 class App extends React.Component {
     constructor() {

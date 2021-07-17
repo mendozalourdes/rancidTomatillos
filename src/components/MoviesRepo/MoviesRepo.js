@@ -9,7 +9,7 @@ const MoviesRepo = props => {
                         key={movie.id} 
                         id={movie.id}
                         image={movie.poster_path} 
-                        // showMovieDetails={props.showMovieDetails}
+                        cleanInputs={props.cleanInputs}
                     />
     })
     return (
