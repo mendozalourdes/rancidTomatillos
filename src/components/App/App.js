@@ -2,6 +2,7 @@ import './App.css';
 import React from "react"
 import MoviesRepo from "../MoviesRepo/MoviesRepo"
 import SelectedMovie from "../SelectedMovie/SelectedMovie"
+import Search from "../Search/Search"
 import apiCalls from "../../Utilities/apiCalls"
 import { Route } from 'react-router-dom';
 import loadingImage from "../../assets/loadingImage.jpg";
@@ -27,39 +28,32 @@ class App extends React.Component {
           } else {
             this.setState({movies: cleanAllMovies(response.movies)})
           }
-          console.log(this.state.movies[0].backdrop_path)
       })
       .catch(err => err.message)
-}
+  }
 
 
     render() {
       return (
         <main>
-          <header>
-            <h1 className="app-title">Rancid Tomatillos</h1>
-            <nav>
-              <input className="search-box" type="search"/> 
-              <button className="search-button" >search</button>
-            </nav>
-            </header>
-            {!this.state.movies.length && !this.state.error.length &&
-            <h2> Loading Movies...</h2> 
-            }
-                {!this.state.movies.length && !this.state.error.length &&
-        <img className="loading-image" src={ loadingImage }></img>
-        }
+          {this.state.movies.length && <Search movies={this.state.movies}/>}
+
+          {!this.state.movies.length && !this.state.error.length &&
+                <div className="loading-view">
+                    <h2> Loading Movies...</h2> 
+                    <img className="loading-image" alt={"Loading movies"} src={ loadingImage }></img>
+                </div>}
+
           {this.state.error && <h2>{this.state.error}</h2>}
-            <Route exact path="/" >
-              <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
-            </Route>
+
+          <Route exact path="/" >
+            <MoviesRepo movies={this.state.movies}/> 
+          </Route>
 
             <Route
               path="/movies/:id" render={(props) => {
                 return <SelectedMovie {...props }  />
               }}/>
-
-              
         </main>
       );
     }

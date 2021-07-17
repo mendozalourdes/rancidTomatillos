@@ -31,3 +31,16 @@ input {
   outline: none;
   border: 0;
 }
+
+.loading-image {
+  width: 100%;
+  height: auto;
+}
+
+.loading-view {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

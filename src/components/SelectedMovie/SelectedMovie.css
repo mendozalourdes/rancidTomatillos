@@ -24,11 +24,9 @@
   height: 50vh;
   border: 5px dotted rgb(238, 196, 58);
   margin: 2%;
-  /* border-radius: 2%; */
 }
 
 .selected-movie-poster {
-  /* border-radius: 1em; */
   box-shadow: 7px 2px 20px 0px;
   padding: 10px 10px 10px 10px;
   width: 24vw;
@@ -53,13 +51,10 @@
   margin: 0 0 0 0;
   display: flex;
   justify-content: center;
-  /* margin-bottom: .5em; */
   color: black;
 }
 
 .sidebar {
-  /* font-size: .75em; */
-  /* margin-left: 2em; */
   width: auto;
   height: auto;
   position: absolute;
@@ -69,8 +64,6 @@
 }
 
 .overview {
-  /* border: 5px dotted yellow; */
-  /* height: 60vh; */
   width: 50vw;
   margin-left: 2em;
 }
