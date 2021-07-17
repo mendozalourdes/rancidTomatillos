@@ -2,7 +2,7 @@ import './App.css';
 import React from "react"
 import MoviesRepo from "../MoviesRepo/MoviesRepo"
 import SelectedMovie from "../SelectedMovie/SelectedMovie"
-import apiCalls from "../../apiCalls"
+import apiCalls from "../../Utilities/apiCalls"
 import { Route } from 'react-router-dom';
 import loadingImage from "../../assets/loadingImage.jpg";
 import { cleanAllMovies } from '../../Utilities/Utils'
