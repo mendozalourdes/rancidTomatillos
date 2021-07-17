@@ -5,6 +5,7 @@ import SelectedMovie from "../SelectedMovie/SelectedMovie"
 import apiCalls from "../../apiCalls"
 import { Route } from 'react-router-dom';
 import loadingImage from "../../assets/loadingImage.jpg";
+import { cleanAllMovies } from '../../Utilities/Utils'
 
 class App extends React.Component {
     constructor() {
@@ -22,7 +23,8 @@ class App extends React.Component {
           if(typeof response === 'string') {
             this.setState({ error: response })
           } else {
-            this.setState({movies: response.movies})
+            this.setState({movies: cleanAllMovies(response.movies)})
+            console.log("cleanMovies", this.state.movies)
           }
           console.log(this.state.movies[0].backdrop_path)
       })
