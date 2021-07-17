@@ -1,7 +1,7 @@
 import React from "react"
 import Movie from "../Movie/Movie"
 import './MoviesRepo.css'
-import Search from "../Search/Search"
+
 
 const MoviesRepo = props => {
     const movieComponents = props.movies.map(movie => {
@@ -9,6 +9,7 @@ const MoviesRepo = props => {
                         key={movie.id} 
                         id={movie.id}
                         image={movie.poster_path} 
+                        title={movie.title}
                         cleanInputs={props.cleanInputs}
                     />
     })

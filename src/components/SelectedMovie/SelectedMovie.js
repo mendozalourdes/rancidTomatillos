@@ -44,8 +44,7 @@ class SelectedMovie extends Component {
             revenue, 
             runtime, 
             overview, 
-            tagline, 
-            id
+            tagline
           } = this.state.selectedMovie
 
         let movieDetails =  
@@ -77,7 +76,7 @@ class SelectedMovie extends Component {
           </article>
           </div>
           <div>
-              <img className="selected-movie-poster" src={poster_path}/>
+              <img className="selected-movie-poster" alt={`A post of the film ${title}`} src={poster_path}/>
           </div>
       </div>
   </section>
@@ -88,7 +87,7 @@ class SelectedMovie extends Component {
                     <h2> Loading Movie Details...</h2> 
                     }
            {!this.state.selectedMovie && !this.state.error.length && 
-                <img className="loading-image" src={ loadingImage }></img>
+                <img className="loading-image" alt={"Loading movie details"} src={ loadingImage }></img>
                 }     
 
         {this.state.error ?  <h2> {this.state.error}</h2> : movieDetails}
