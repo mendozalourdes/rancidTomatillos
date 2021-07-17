@@ -20,7 +20,7 @@ class Search extends React.Component {
         // this.setState({ search: "" })
         this.setState({ [event.target.name]: event.target.value })
         const searchCase = this.state.search.toLowerCase()
-        // console.log("search bar", this.state.search)
+        console.log("search bar", this.state.search)
         // console.log("search state movies", this.state.movies)
         const filteredFilms = this.state.movies.filter(movie => {
             const lowerCase = movie.title.toLowerCase()
@@ -28,7 +28,7 @@ class Search extends React.Component {
           })
         //   console.log("filteredFilms", this.state.filteredMovies)
         const listOptions = filteredFilms.map(movie => {
-            return <option key={movie.id} value={movie.title}></option>
+            return <option key={movie.id} value={movie.title}>{movie.title}</option>
         })
         this.setState({ filteredMovies: filteredFilms, options: listOptions })
       }
@@ -48,13 +48,16 @@ class Search extends React.Component {
                 type="search"
                 name="search"
                 list="movies"
+                id="search"
                 value={this.state.search}
                 onChange={this.handleChange}
+                // onClick={this.handleChange}
+                // onSubmit={this.handleChange}
             />
             <datalist id="movies">
                 {this.state.options}
             </datalist>
-            <Link to={"/search"}><button className="search-button" >search</button></Link>
+            <Link to={"/search"}><button type="submit" className="search-button" onClick={this.handleChange}>search</button></Link>
         </nav>  
         </header>
         <Route
