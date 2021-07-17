@@ -27,6 +27,3 @@ export const modifyMovieData = (movie) => {
         }
 
 }
-
-// let getRandomIndex = Math.floor(Math.random() * moviesData.length)
-//movie[randomMovieIndex].backdrop

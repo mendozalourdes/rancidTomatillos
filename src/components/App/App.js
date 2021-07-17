@@ -6,7 +6,7 @@ import apiCalls from "../../Utilities/apiCalls"
 import { Route } from 'react-router-dom';
 import loadingImage from "../../assets/loadingImage.jpg";
 import { cleanAllMovies } from '../../Utilities/Utils'
-
+import RandomMovieBackdrop from '../RandomMovieBackdrop/RandomMovieBackdrop';
  
 
 class App extends React.Component {
@@ -51,6 +51,7 @@ class App extends React.Component {
         }
           {this.state.error && <h2>{this.state.error}</h2>}
             <Route exact path="/" >
+              {this.state.movies.length && <RandomMovieBackdrop movies={this.state.movies} />}
               <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
             </Route>
 
