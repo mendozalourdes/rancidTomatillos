@@ -50,7 +50,7 @@ class App extends React.Component {
                 {!this.state.movies.length && !this.state.error.length &&
                 <div className="loading-view">
                     <h2> Loading Movies...</h2> 
-                    <img className="loading-image" src={ loadingImage }></img>
+                    <img className="loading-image" alt={"Loading movies"} src={ loadingImage }></img>
                 </div>
 
         }
