@@ -1,6 +1,5 @@
-// import React from "react"
 import "./SelectedMovie.css"
-import React, { Component} from "react";
+import React, { Component } from "react";
 import apiCalls from "../../apiCalls"
 import loadingImage from "../../assets/loadingImage.jpg";
 import { Link } from 'react-router-dom'

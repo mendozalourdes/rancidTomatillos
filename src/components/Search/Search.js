@@ -7,7 +7,6 @@ import "./Search.css"
 class Search extends React.Component {
     constructor(props) {
         super(props)
-        // console.log("search props", props)
         this.state = {
             movies: props.movies,
             search: "",
@@ -17,17 +16,12 @@ class Search extends React.Component {
     } 
 
     handleChange = event => {
-        // const search = event.target
-        // this.setState({ search: "" })
         this.setState({ [event.target.name]: event.target.value })
         const searchCase = this.state.search.toLowerCase()
-        console.log("search bar", this.state.search)
-        // console.log("search state movies", this.state.movies)
         const filteredFilms = this.state.movies.filter(movie => {
             const lowerCase = movie.title.toLowerCase()
             return lowerCase.includes(searchCase)
           })
-        //   console.log("filteredFilms", this.state.filteredMovies)
         const listOptions = filteredFilms.map(movie => {
             return <option key={movie.id} value={movie.title} >{movie.title}</option>
         })
@@ -53,8 +47,6 @@ class Search extends React.Component {
                     id="search"
                     value={this.state.search}
                     onChange={event => this.handleChange(event)}
-                    // onClick={this.handleChange}
-                    // onSubmit={this.handleChange}
                 />
                 <datalist id="movies">
                     {this.state.options}
@@ -62,37 +54,15 @@ class Search extends React.Component {
                 <Link to={"/search"}>
                     <button 
                         type="submit" 
-                        className="search-button" 
-                        // onSubmit={event => this.handleChange(event)} 
+                        className="search-button"  
                         onClick={event => this.handleChange(event)}>search</button></Link>
                 </form>
-            {/* <input 
-                className="search-box" 
-                type="search"
-                name="search"
-                list="movies"
-                id="search"
-                value={this.state.search}
-                onChange={event => this.handleChange(event)}
-                // onClick={this.handleChange}
-                // onSubmit={this.handleChange}
-            />
-            <datalist id="movies">
-                {this.state.options}
-            </datalist>
-            <Link to={"/search"}>
-                <button 
-                    type="submit" 
-                    className="search-button" 
-                    onSubmit={event => this.handleChange(event)} 
-                    onClick={event => this.handleChange(event)}>search</button></Link> */}
         </nav>  
         </header>
         <Route
            exact path="/search" render={() => {
         return <Results filteredMovies={this.state.filteredMovies}  cleanInputs={this.cleanInputs}/>
         }}/>
-        {/* Add a return home button on here too  page title*/}
         </>
         )
     }
