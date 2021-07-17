@@ -26,8 +26,8 @@ class Search extends React.Component {
             return lowerCase.includes(searchCase)
           })
           console.log("filteredFilms", this.state.filteredMovies)
-        const listOptions = filteredFilms.map(movie => {
-            return <option value={movie.title}></option>
+        const listOptions = filteredFilms.map((movie, index) => {
+            return <option key={index} value={movie.title}></option>
         })
         this.setState({ filteredMovies: filteredFilms, options: listOptions })
       }
