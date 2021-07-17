@@ -1,6 +1,6 @@
 import React from "react"
 import MoviesRepo from "../MoviesRepo/MoviesRepo"
-import { Link, Route } from 'react-router-dom'
+import { NavLink, Link, Route } from 'react-router-dom'
 import Results from "../Results/Results"
 
 class Search extends React.Component {
@@ -13,7 +13,7 @@ class Search extends React.Component {
             filteredMovies: [],
             options: []
         }
-    }
+    } 
 
     handleChange = event => {
         // const search = event.target
@@ -41,7 +41,7 @@ class Search extends React.Component {
         return (
         <>
         <header>
-           <Link to={"/"}> <h1 className="app-title">Rancid Tomatillos</h1> </Link>
+           <Link to={"/"}> <h1 className="app-title" onClick={this.cleanInputs}>Rancid Tomatillos</h1> </Link>
         <nav>
             <input 
                 className="search-box" 
