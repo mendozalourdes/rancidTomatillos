@@ -26,7 +26,6 @@ class App extends React.Component {
             this.setState({ error: response })
           } else {
             this.setState({movies: cleanAllMovies(response.movies)})
-            console.log("cleanMovies", this.state.movies)
           }
           console.log(this.state.movies[0].backdrop_path)
       })

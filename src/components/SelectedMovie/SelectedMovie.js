@@ -28,7 +28,6 @@ class SelectedMovie extends Component {
             } else {
               this.setState({selectedMovie: modifyMovieData(response.movie)})
             }
-            // console.log("genres", this.state.selectedMovie.budget.toLocaleString("en-US"))
         })
         .catch(err => err.message)
   }
