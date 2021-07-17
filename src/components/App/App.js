@@ -4,9 +4,9 @@ import MoviesRepo from "../MoviesRepo/MoviesRepo"
 import SelectedMovie from "../SelectedMovie/SelectedMovie"
 import Search from "../Search/Search"
 import apiCalls from "../../apiCalls"
-import Results from "../Results/Results"
+// import Results from "../Results/Results"
 import { Route } from 'react-router-dom';
-import loadingImage from "../../assets/loadingImage.jpg";
+// import loadingImage from "../../assets/loadingImage.jpg";
 
 class App extends React.Component {
     constructor() {
@@ -42,7 +42,7 @@ class App extends React.Component {
            {this.state.movies.length && <Search movies={this.state.movies}/>}
           
           {/* <Search movies={this.state.movies}/> */}
-          {console.log("app", this.state.movies)}
+          {/* {console.log("app", this.state.movies)} */}
           {/* <Search movies={this.state.movies}/> */}
           {this.state.error && <h2>{this.state.error}</h2>}
             {/* <section className="random-movie-section">
