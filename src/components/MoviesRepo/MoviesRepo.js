@@ -4,11 +4,13 @@ import './MoviesRepo.css'
 
 const MoviesRepo = props => {
     const movieComponents = props.movies.map(movie => {
+        console.log("movieBackDrop", movie.backdrop)
             return <Movie 
                         key={movie.id} 
                         id={movie.id}
                         image={movie.poster_path} 
                         showMovieDetails={props.showMovieDetails}
+                        backdrop={props.backdrop_path}
                     />
     })
     return (
