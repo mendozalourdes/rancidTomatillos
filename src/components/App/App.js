@@ -6,7 +6,7 @@ import Search from "../Search/Search"
 import apiCalls from "../../apiCalls"
 // import Results from "../Results/Results"
 import { Route } from 'react-router-dom';
-// import loadingImage from "../../assets/loadingImage.jpg";
+import loadingImage from "../../assets/loadingImage.jpg";
 
 class App extends React.Component {
     constructor() {
@@ -44,6 +44,16 @@ class App extends React.Component {
           {/* <Search movies={this.state.movies}/> */}
           {/* {console.log("app", this.state.movies)} */}
           {/* <Search movies={this.state.movies}/> */}
+          {/* {!this.state.movies.length && !this.state.error.length &&
+            <h2> Loading Movies...</h2> 
+            } */}
+                {!this.state.movies.length && !this.state.error.length &&
+                <div className="loading-view">
+                    <h2> Loading Movies...</h2> 
+                    <img className="loading-image" src={ loadingImage }></img>
+                </div>
+
+        }
           {this.state.error && <h2>{this.state.error}</h2>}
             {/* <section className="random-movie-section">
             this is where our RandomMovie component will go  
