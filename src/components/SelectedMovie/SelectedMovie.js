@@ -4,6 +4,7 @@ import React, { Component} from "react";
 import apiCalls from "../../apiCalls"
 import loadingImage from "../../assets/loadingImage.jpg";
 import { Link } from 'react-router-dom'
+import { modifyMovieData } from '../../Utilities/Utils'
 
 
 
@@ -11,7 +12,6 @@ import { Link } from 'react-router-dom'
 class SelectedMovie extends Component {
     constructor(props) {
         super(props);
-        console.log("props", props)
         this.state= {
             selectedMovie: "",
             error: "",
@@ -26,8 +26,9 @@ class SelectedMovie extends Component {
             if(typeof response === 'string') {
               this.setState({ error: response })
             } else {
-              this.setState({selectedMovie: response.movie})
+              this.setState({selectedMovie: modifyMovieData(response.movie)})
             }
+            // console.log("genres", this.state.selectedMovie.budget.toLocaleString("en-US"))
         })
         .catch(err => err.message)
   }
@@ -56,10 +57,10 @@ class SelectedMovie extends Component {
       <div className="sidebar-backdrop-container">
        <aside className="sidebar">
           <h3>Released: {release_date}</h3>
-          <h3>Rating: {average_rating}</h3>
-          <h3>Budget: {budget}</h3>
-          <h3>Revenue: {revenue}</h3>
-          <h3>Runtime: {runtime}</h3>
+          <h3>Rating: {average_rating} / 10</h3>
+          <h3>Budget: ${budget}</h3>
+          <h3>Revenue: ${revenue}</h3>
+          <h3>Runtime: {runtime} minutes</h3>
       </aside>
       <div className="backdrop-container">
               <img src={backdrop_path} alt={title} className="backdrop"/>

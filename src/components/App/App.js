@@ -7,6 +7,8 @@ import { Route } from 'react-router-dom';
 import loadingImage from "../../assets/loadingImage.jpg";
 import { cleanAllMovies } from '../../Utilities/Utils'
 
+ 
+
 class App extends React.Component {
     constructor() {
       super()
