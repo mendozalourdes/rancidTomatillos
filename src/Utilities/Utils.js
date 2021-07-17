@@ -4,7 +4,7 @@ export const cleanAllMovies = (movies) => {
             "id": movie.id, 
             "title": movie.title, 
             "poster_path": movie.poster_path, 
-            "backdrop": movie.backdrop_path
+            "backdrop_path": movie.backdrop_path
         }
     })
 }
