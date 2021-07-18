@@ -3,6 +3,7 @@ import React from "react"
 import MoviesRepo from "../MoviesRepo/MoviesRepo"
 import SelectedMovie from "../SelectedMovie/SelectedMovie"
 import Search from "../Search/Search"
+import Results from "../Results/Results"
 import apiCalls from "../../Utilities/apiCalls"
 import { Route, Switch, Redirect } from 'react-router-dom';
 import loadingImage from "../../assets/loadingImage.jpg";
@@ -59,6 +60,10 @@ class App extends React.Component {
                 path="/movies/:id" render={(props) => {
                   return <SelectedMovie {...props }  />
                 }}/>
+                <Route
+                  exact path="/search"
+                    render={() => <Search movies={this.state.movies}/>}
+                /> 
               <Redirect to='/' />
             </Switch>
         </main>
