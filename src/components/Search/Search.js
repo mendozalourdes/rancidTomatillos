@@ -36,7 +36,7 @@ class Search extends React.Component {
         return (
             <>
                 <header>
-                    <NavLink to={"/"} className=".app-title"> <h1 className="app-title" onClick={this.cleanInputs}>Rancid Tomatillos</h1> </NavLink>
+                    <NavLink to={"/"} className=".app-title"> <button> <h1 className="app-title" onClick={this.cleanInputs}>Rancid Tomatillos</h1></button> </NavLink>
                     <nav>
                         <form onSubmit={event => this.handleChange(event)}>
                             <input 
