@@ -37,8 +37,6 @@ class App extends React.Component {
     render() {
       return (
         <main>
-          {/* {this.state.movies.length && <Search movies={this.state.movies}/>} */}
-
           {!this.state.movies.length && !this.state.error.length &&
                 <div className="loading-view">
                     <h2> Loading Movies...</h2> 
@@ -55,7 +53,6 @@ class App extends React.Component {
                 return (
                 <>
                   {this.state.movies.length && <Search movies={this.state.movies}/>}
-                  {/* && no errors here */}
                   {this.state.movies.length && <RandomMovieBackdrop movies={this.state.movies}/>}
                   <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/>
                 </> )
@@ -75,10 +72,6 @@ class App extends React.Component {
                 exact path="/search"
                   render={() => <Search movies={this.state.movies}/>}
               /> 
-              {/* <Route
-                exact path="/search"
-                  component={Results}
-              /> */}
               <Redirect to='/' />
             </Switch>
         </main>
