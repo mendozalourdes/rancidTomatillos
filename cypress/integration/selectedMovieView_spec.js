@@ -77,7 +77,7 @@ describe("Selected Movie View", () => {
                     "average_rating": 6, 
                     "genres": ["Drama"], 
                     "budget": 63000000, 
-                    "revenue": 100853753, 
+                    "revenue": "100,853,753",
                     "runtime": 139, 
                     "tagline": "It's a movie!" 
                 }}
@@ -102,7 +102,7 @@ describe("Selected Movie View", () => {
                     "average_rating": 6, 
                     "genres": ["Drama"], 
                     "budget": 63000000, 
-                    "revenue": 100853753, 
+                    "revenue": "100,853,753",
                     "runtime": 139, 
                     "tagline": "It's a movie!" 
                 }}
@@ -161,7 +161,7 @@ describe("Selected Movie View", () => {
                     "average_rating": 6, 
                     "genres": ["Drama"], 
                     "budget": 63000000, 
-                    "revenue": 100853753, 
+                    "revenue": "100,853,753",
                     "runtime": 139, 
                     "tagline": "It's a movie!" 
                 }}
@@ -186,7 +186,7 @@ describe("Selected Movie View", () => {
                     "average_rating": 6, 
                     "genres": ["Drama"], 
                     "budget": 63000000, 
-                    "revenue": 100853753, 
+                    "revenue": "100,853,753",
                     "runtime": 139, 
                     "tagline": "It's a movie!" 
                 }}
@@ -210,7 +210,7 @@ describe("Selected Movie View", () => {
                     "average_rating": 6, 
                     "genres": ["Drama"], 
                     "budget": 63000000, 
-                    "revenue": 100853753, 
+                    "revenue": "100,853,753", 
                     "runtime": 139, 
                     "tagline": "It's a movie!" 
                 }}
