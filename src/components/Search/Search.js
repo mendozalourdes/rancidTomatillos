@@ -66,6 +66,7 @@ class Search extends React.Component {
            exact path="/search" render={() => {
         return <Results filteredMovies={this.state.filteredMovies}  cleanInputs={this.cleanInputs}/>
         }}/>
+        {/* <Results filteredMovies={this.state.filteredMovies}  cleanInputs={this.cleanInputs}/> */}
         </>
         )
     }

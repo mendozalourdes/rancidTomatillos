@@ -3,7 +3,6 @@ import React from "react"
 import MoviesRepo from "../MoviesRepo/MoviesRepo"
 import SelectedMovie from "../SelectedMovie/SelectedMovie"
 import Search from "../Search/Search"
-import Results from "../Results/Results"
 import apiCalls from "../../Utilities/apiCalls"
 import { Route, Switch, Redirect } from 'react-router-dom';
 import loadingImage from "../../assets/loadingImage.jpg";
@@ -38,7 +37,7 @@ class App extends React.Component {
     render() {
       return (
         <main>
-          {this.state.movies.length && <Search movies={this.state.movies}/>}
+          {/* {this.state.movies.length && <Search movies={this.state.movies}/>} */}
 
           {!this.state.movies.length && !this.state.error.length &&
                 <div className="loading-view">
@@ -51,19 +50,35 @@ class App extends React.Component {
                                 <img src={errorSign} alt={"A neon sign that says error!"} className="error-image"/>
                               </section>}
             <Switch>
-              <Route exact path="/" >
-                {this.state.movies.length && <RandomMovieBackdrop movies={this.state.movies} />}
-                <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
-              </Route>
+
+              <Route exact path="/" render={() => {
+                return (
+                <>
+                  {this.state.movies.length && <Search movies={this.state.movies}/>}
+                  {/* && no errors here */}
+                  {this.state.movies.length && <RandomMovieBackdrop movies={this.state.movies}/>}
+                  <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/>
+                </> )
+              }} />
 
               <Route
                 path="/movies/:id" render={(props) => {
-                  return <SelectedMovie {...props }  />
+                  return (
+                    <> 
+                      {this.state.movies.length && <Search movies={this.state.movies}/>}
+                      <SelectedMovie {...props }  />
+                    </>
+                  )
                 }}/>
-                <Route
-                  exact path="/search"
-                    render={() => <Search movies={this.state.movies}/>}
-                /> 
+
+              <Route
+                exact path="/search"
+                  render={() => <Search movies={this.state.movies}/>}
+              /> 
+              {/* <Route
+                exact path="/search"
+                  component={Results}
+              /> */}
               <Redirect to='/' />
             </Switch>
         </main>
