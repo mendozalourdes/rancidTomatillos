@@ -1,4 +1,4 @@
-const baseURL = "https://rancid-tomatillos.herokuapp.com/api//v2"
+const baseURL = "https://rancid-tomatillos.herokuapp.com/api/v2"
 let apiCalls = {
 
 

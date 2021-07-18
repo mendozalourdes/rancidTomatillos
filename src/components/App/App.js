@@ -4,7 +4,7 @@ import MoviesRepo from "../MoviesRepo/MoviesRepo"
 import SelectedMovie from "../SelectedMovie/SelectedMovie"
 import Search from "../Search/Search"
 import apiCalls from "../../Utilities/apiCalls"
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import loadingImage from "../../assets/loadingImage.jpg";
 import errorSign from "../../assets/Error-neon-sign.jpeg"
 import { cleanAllMovies } from '../../Utilities/Utils'
@@ -49,15 +49,18 @@ class App extends React.Component {
                                 <h2>{this.state.error}</h2>
                                 <img src={errorSign} alt={"A neon sign that says error!"} className="error-image"/>
                               </section>}
-            <Route exact path="/" >
-              {this.state.movies.length && <RandomMovieBackdrop movies={this.state.movies} />}
-              <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
-            </Route>
+            <Switch>
+              <Route exact path="/" >
+                {this.state.movies.length && <RandomMovieBackdrop movies={this.state.movies} />}
+                <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
+              </Route>
 
-            <Route
-              path="/movies/:id" render={(props) => {
-                return <SelectedMovie {...props }  />
-              }}/>
+              <Route
+                path="/movies/:id" render={(props) => {
+                  return <SelectedMovie {...props }  />
+                }}/>
+              <Redirect to='/' />
+            </Switch>
         </main>
       );
     }
