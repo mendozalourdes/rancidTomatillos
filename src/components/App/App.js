@@ -36,6 +36,7 @@ class App extends React.Component {
     render() {
       return (
         <main>
+          {this.state.error && <h2 className="error-message">{this.state.error}</h2>}
           {this.state.movies.length && <Search movies={this.state.movies}/>}
 
           {!this.state.movies.length && !this.state.error.length &&
@@ -44,7 +45,7 @@ class App extends React.Component {
                     <img className="loading-image" alt={"Loading movies"} src={ loadingImage }></img>
                 </div>}
 
-          {this.state.error && <h2>{this.state.error}</h2>}
+          {/* {this.state.error && <h2>{this.state.error}</h2>} */}
             <Route exact path="/" >
               {this.state.movies.length && <RandomMovieBackdrop movies={this.state.movies} />}
               <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
