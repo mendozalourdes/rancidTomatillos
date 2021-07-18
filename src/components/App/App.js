@@ -6,6 +6,7 @@ import Search from "../Search/Search"
 import apiCalls from "../../Utilities/apiCalls"
 import { Route } from 'react-router-dom';
 import loadingImage from "../../assets/loadingImage.jpg";
+import errorSign from "../../assets/Error-neon-sign.jpeg"
 import { cleanAllMovies } from '../../Utilities/Utils'
 import RandomMovieBackdrop from '../RandomMovieBackdrop/RandomMovieBackdrop';
  
@@ -44,7 +45,10 @@ class App extends React.Component {
                     <img className="loading-image" alt={"Loading movies"} src={ loadingImage }></img>
                 </div>}
 
-          {this.state.error && <h2>{this.state.error}</h2>}
+          {this.state.error && <section className="error-view">
+                                <h2>{this.state.error}</h2>
+                                <img src={errorSign} alt={"A neon sign that says error!"} className="error-image"/>
+                              </section>}
             <Route exact path="/" >
               {this.state.movies.length && <RandomMovieBackdrop movies={this.state.movies} />}
               <MoviesRepo movies={this.state.movies} showMovieDetails={this.showMovieDetails}/> 
