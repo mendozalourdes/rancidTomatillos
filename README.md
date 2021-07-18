@@ -23,5 +23,14 @@ To solidify and demonstrate the understanding of:
 * Users can search for a specific film through a search bar. 
 * Users can also view a randomly selected film at the top of the home page.  
 
+**[Back to top](#table-of-contents)**
 
+## How does this work?
+
+![Home Page View]()
+![Search Bar View]()
+![Movie Details View]()  
+
+
+**[Back to top](#table-of-contents)**
 
