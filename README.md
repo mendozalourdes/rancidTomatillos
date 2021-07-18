@@ -51,3 +51,25 @@ To solidify and demonstrate the understanding of:
 
 ##### Challenges
 * 
+
+#### Future Features
+* Ability for users to add a movie of their choosing to the database.
+
+
+## Credits
+#### Authors
+<table>
+    <tr>
+        <td> Lourdes Mendoza <a href="https://github.com/mendozalourdes/intention-timer">GH</td>
+    </tr>
+    </tr>
+    <td><img src="https://avatars.githubusercontent.com/u/78240633?v=4" alt="Lourdes GH img"
+ width="150" height="auto" /></td>
+    <tr>
+     <tr>
+          <td> Ashley O'Brien <a href="https://github.com/AshleyOh-bit">GH</td>
+    </tr>
+    </tr>
+ <td><img src="https://avatars.githubusercontent.com/u/76665215?v=4" alt="Ashley GH img"
+width="150" height="auto" /></td>
+</table>
