@@ -17,3 +17,11 @@ To solidify and demonstrate the understanding of:
 2. Learn how to test React components & asynchronous JS
 3. Create a multi-page UX using Router
 
+## Features
+* A website that allows a user to view a selection of films, and click on whichever they may be interested in viewing. 
+* The user can view more details about each film such as an overview, genres, rating, budget, revenue, and more. 
+* Users can search for a specific film through a search bar. 
+* Users can also view a randomly selected film at the top of the home page.  
+
+
+
