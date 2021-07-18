@@ -1,54 +1,42 @@
 
 describe('User visits the search page view', () => {
-
     beforeEach(() => {
-        cy.visit('http://localhost:3000')
-        });
-
-        
-    it('Should show the user a page title and directive text', () => {
-        cy.contains('h1', 'Rancid Tomatillos')
-    });
-
-
-    it("should be able to click on main title to return home ", () => {
-        cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/1", {
-            statusCode: 201,
-            body: { movie: {
-                    "id": 1,  
-                    "title": "Fake Movie Title", 
-                    "poster_path": "https://image.tmdb.org/t/p/original//7G2VvG1lU8q758uOqU6z2Ds0qpA.jpg", 
-                    "backdrop_path": "https://image.tmdb.org/t/p/original//oazPqs1z78LcIOFslbKtJLGlueo.jpg", 
-                    "release_date": "2019-12-04", "overview": "Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!", 
-                    "average_rating": 6, 
-                    "genres": ["Drama"], 
-                    "budget": 63000000, 
-                    "revenue": "100,853,753",
-                    "runtime": 139, 
-                    "tagline": "It's a movie!" 
-                }}
-        });
-    
-        cy.visit('http://localhost:3000')
-            .get("#1")
-            .click()
-        cy.get("button")
-            .contains("Rancid Tomatillos")
-            .click({force: true})
+      cy.fixture('movies').then((movies) => {
+        cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', { body: movies }).as('movies')
+      })
+      cy.visit('http://localhost:3000/search')
     })
 
-    it('Should show the user a search bar', () => {
-      cy.get('input').should('have.class', 'search-box')
-    });
+it('Should show the user a page title and directive text', () => {
+cy.contains('h1', 'Rancid Tomatillos')
+});
 
-    it('Should show the user a selection of movies from a database upon page load', () => {
-                cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2', {
-                    statusCode: 201, 
-                    delay: 100,
-                })
-                cy.visit('http://localhost:3000')
-                cy.get('img').should('have.class', 'movie-poster') 
-            });
+it('should have a search input and button on the page', () => {
+cy.get('form').find('input')
+  .get('form').find('button')
+})
+
+it('should be able to search for a movie given an input', () => {
+    cy.get('input').type('Bill')
+      .get('.movie-container').children().should('have.length', 1)
+      .get('img').should('have.class', 'movie-poster') 
+  })
+
+  it('should show no results if input does not match film selection', () => {
+    cy.get('input').type('The Simpsons')
+      .get('.movie-container').children().should('have.length', 0)
+    
+  })
+
+  it('should show an error message if the input does not match film selection', () => {
+    cy.get('input').type('The Simpsons')
+      .get('.movie-container').children().should('have.length', 0)
+    cy.get('h1')
+        .contains("Sorry, we couldn't find any movies to match your search. Please try again!")
+    
+  })
+
+
 
     }); 
 
