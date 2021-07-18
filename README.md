@@ -73,3 +73,19 @@ To solidify and demonstrate the understanding of:
  <td><img src="https://avatars.githubusercontent.com/u/76665215?v=4" alt="Ashley GH img"
 width="150" height="auto" /></td>
 </table>
+
+#### Project Manager
+<table>
+    <tr>
+         <td> Kayla Wood <a href="https://github.com/kaylaewood">GH</td>
+    </tr>
+    </tr>
+    <td><img src="https://avatars.githubusercontent.com/u/51416773?v=4" alt="Kayla GH img"
+ width="150" height="auto" /></td>
+</tr>
+</table>
+
+**************************************************************************
+###### This project was created for [Turing School of Software and Design](https://turing.io/)
+###### 2021/07/19
+**[Back to top](#table-of-contents)**
