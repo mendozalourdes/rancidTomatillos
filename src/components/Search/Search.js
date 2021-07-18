@@ -59,6 +59,9 @@ class Search extends React.Component {
                 </form>
         </nav>  
         </header>
+        {/* <section>
+        {!this.state.filteredMovies.length && <h2>Sorry, we couldn't find any movies to match your search. Please try again!</h2>}
+        </section> */}
         <Route
            exact path="/search" render={() => {
         return <Results filteredMovies={this.state.filteredMovies}  cleanInputs={this.cleanInputs}/>
