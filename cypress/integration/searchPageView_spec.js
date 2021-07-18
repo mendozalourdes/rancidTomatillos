@@ -46,6 +46,14 @@ it('should be able to search for a movie given an input', () => {
     
   })
 
+  it('should clear input after user clicks on the movie poster', () => {
+    cy.get('input').type('Mulan')
+      .get('.movie-container').children().should('have.length', 1)
+      .get('img').should('have.class', 'movie-poster').click({force: true})
+    cy.get('input').should('be.empty')
+    
+  })
+
   it('should display all movies if user clicks on search button with empty input', () => {
     cy.get('input').should('be.empty')
     cy.get('form').find('button').click()
