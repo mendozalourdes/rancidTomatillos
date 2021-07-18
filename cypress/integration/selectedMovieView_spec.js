@@ -224,7 +224,7 @@ describe("Selected Movie View", () => {
             .click()
     })
 
-    it("should be able to return home from ", () => {
+    it("should be able to click on main title to return home ", () => {
         cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/1", {
             statusCode: 201,
             body: { movie: {
@@ -246,8 +246,8 @@ describe("Selected Movie View", () => {
             .get("#1")
             .click()
         cy.get("button")
-            .contains("Return Home")
-            .click()
+            .contains("Rancid Tomatillos")
+            .click({force: true})
     })
  
 });

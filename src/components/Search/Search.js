@@ -36,7 +36,7 @@ class Search extends React.Component {
         return (
         <>
         <header>
-           <NavLink to={"/"} style={{ textDecoration: 'none', color: "white" }}> <h1 className="app-title" onClick={this.cleanInputs}>Rancid Tomatillos</h1> </NavLink>
+           <NavLink to={"/"} style={{ textDecoration: 'none', color: "white" }}> <button> <h1 className="app-title" onClick={this.cleanInputs}>Rancid Tomatillos</h1></button> </NavLink>
         <nav>
             <form onSubmit={event => this.handleChange(event)}>
                 <input 
