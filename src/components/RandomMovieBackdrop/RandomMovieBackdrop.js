@@ -4,9 +4,9 @@ import "./RandomMovieBackdrop.css"
 
 
 const RandomMovieBackdrop = (props) => {
-    const randomMovieIndex = Math.floor(Math.random() * props.movies.length)
-    const randomBackdrop = (props.movies[randomMovieIndex].backdrop_path)
-    const randomTitle = (props.movies[randomMovieIndex].title)
+  const randomMovieIndex = Math.floor(Math.random() * props.movies.length);
+  const randomBackdrop = props.movies[randomMovieIndex].backdrop_path;
+  const randomTitle = props.movies[randomMovieIndex].title;
 
     return (
         <section className="random-movie-section">

@@ -1,71 +1,90 @@
 import React from "react"
-import { Link, Route } from 'react-router-dom'
+import { NavLink, Link, Route } from 'react-router-dom'
 import Results from "../Results/Results"
 import "./Search.css"
 
 
 class Search extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            movies: props.movies,
-            search: "",
-            filteredMovies: [],
-            options: []
-        }
-    } 
+  constructor(props) {
+    super(props);
+    this.state = {
+      movies: props.movies,
+      search: "",
+      filteredMovies: [],
+      options: [],
+    };
+  }
 
-    handleChange = event => {
-        this.setState({ [event.target.name]: event.target.value })
-        const searchCase = this.state.search.toLowerCase()
-        const filteredFilms = this.state.movies.filter(movie => {
-            const lowerCase = movie.title.toLowerCase()
-            return lowerCase.includes(searchCase)
-          })
-        const listOptions = filteredFilms.map(movie => {
-            return <option key={movie.id} value={movie.title} >{movie.title}</option>
-        })
-        this.setState({ filteredMovies: filteredFilms, options: listOptions })
-      }
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+    const searchCase = this.state.search.toLowerCase();
+    const filteredFilms = this.state.movies.filter((movie) => {
+      const lowerCase = movie.title.toLowerCase();
+      return lowerCase.includes(searchCase);
+    });
+    const listOptions = filteredFilms.map((movie) => {
+      return (
+        <option key={movie.id} value={movie.title}>
+          {movie.title}
+        </option>
+      );
+    });
+    this.setState({ filteredMovies: filteredFilms, options: listOptions });
+  };
 
-    cleanInputs = () => {
-        this.setState({ search: "" })
-    }
-
-    render() {
-        return (
-            <>
-                <header>
-                    <Link to={"/"}> <button className="title-button"><h1 onClick={this.cleanInputs}>Rancid Tomatillos</h1></button> </Link>
-                    <nav>
-                        <form onSubmit={event => this.handleChange(event)}>
-                            <input 
-                                className="search-box" 
-                                type="search"
-                                name="search"
-                                list="movies"
-                                id="search"
-                                value={this.state.search}
-                                onChange={event => this.handleChange(event)}
-                            />
-                            <datalist id="movies">
-                                {this.state.options}
-                            </datalist>
-                            <Link to={"/search"}>
-                                <button 
-                                    type="submit" 
-                                    className="search-button"  
-                                    onClick={event => this.handleChange(event)}>search</button></Link>
-                            </form>
-                    </nav>  
-                </header>
-                <Route
-                exact path="/search" render={() => {
-                return <Results filteredMovies={this.state.filteredMovies}  cleanInputs={this.cleanInputs}/>
-                }}/>
-            </>
-        )
-    }
-}
-
-export default Search
+  cleanInputs = () => {
+    this.setState({ search: "" });
+  };
+  
+  render() {
+    return (
+      <>
+        <header>
+          <NavLink to={"/"}>
+            <button className="title-button">
+              <h1 onClick={this.cleanInputs}>
+                Rancid Tomatillos
+              </h1>
+            </button>
+          </NavLink>
+          <nav>
+            <form onSubmit={(event) => this.handleChange(event)}>
+              <input
+                className="search-box"
+                type="search"
+                name="search"
+                list="movies"
+                id="search"
+                value={this.state.search}
+                onChange={(event) => this.handleChange(event)}
+              />
+              <datalist id="movies">{this.state.options}</datalist>
+              <Link to={"/search"}>
+                <button
+                  type="submit"
+                  className="search-button"
+                  onClick={(event) => this.handleChange(event)}
+                >
+                  search
+                </button>
+              </Link>
+            </form>
+          </nav>
+        </header>
+        <Route
+          exact
+          path="/search"
+          render={() => {
+            return (
+              <Results
+                filteredMovies={this.state.filteredMovies}
+                cleanInputs={this.cleanInputs}
+              />
+            );
+          }}
+        />
+      </>
+    );
+  }
+  }
+  export default Search;

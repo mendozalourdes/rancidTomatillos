@@ -1,6 +1,5 @@
-
 .movie-container {
-  display: grid;   
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
   grid-gap: 5%;
   height: 105vh;
