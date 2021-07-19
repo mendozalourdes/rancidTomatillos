@@ -1,5 +1,5 @@
 import React from "react"
-import { NavLink, Link, Route } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import Results from "../Results/Results"
 import "./Search.css"
 
@@ -36,7 +36,7 @@ class Search extends React.Component {
         return (
             <>
                 <header>
-                    <NavLink to={"/"} className=".app-title"> <button> <h1 className="app-title" onClick={this.cleanInputs}>Rancid Tomatillos</h1></button> </NavLink>
+                    <Link to={"/"}> <button className="title-button"><h1 onClick={this.cleanInputs}>Rancid Tomatillos</h1></button> </Link>
                     <nav>
                         <form onSubmit={event => this.handleChange(event)}>
                             <input 

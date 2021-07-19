@@ -1,4 +1,5 @@
-.app-title {
+.title-button {
     color: white;
-    text-decoration: none;
+    background-color: transparent;
+    border: 0;
 }
