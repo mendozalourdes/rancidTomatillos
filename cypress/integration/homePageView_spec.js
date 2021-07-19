@@ -21,7 +21,7 @@ describe("User visits the homepage tests", () => {
   });
 
   it("Should show the user a selection of movies from a database upon page load", () => {
-    cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2", {
+    cy.intercept("https://rancid-tomatillos.herokuapp.com/api/v2", {
       statusCode: 201,
       delay: 100,
     });
@@ -30,9 +30,7 @@ describe("User visits the homepage tests", () => {
   });
 
   it("Should show the user an error message if a 400 error is encountered", () => {
-    cy.intercept(
-      "GET",
-      "https://rancid-tomatillos.herokuapp.com/api//v2/movies/",
+    cy.intercept("https://rancid-tomatillos.herokuapp.com/api//v2/movies/",
       {
         statusCode: 404,
         body: {
@@ -40,6 +38,7 @@ describe("User visits the homepage tests", () => {
         },
       }
     );
+    cy.visit("http://localhost:3000");
     cy.get("h2").contains("Something went wrong. Please try again later.");
   });
 });

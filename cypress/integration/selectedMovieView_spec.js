@@ -4,10 +4,7 @@ describe("Selected Movie View", () => {
   });
 
   it("should alert the user of a 404 error", () => {
-    cy.get("#1").click();
-    cy.intercept(
-      "GET",
-      "https://rancid-tomatillos.herokuapp.com/api/v2//movies/1",
+    cy.intercept("https://rancid-tomatillos.herokuapp.com/api/v2//movies/1",
       {
         statusCode: 404,
         body: {
@@ -15,11 +12,11 @@ describe("Selected Movie View", () => {
         },
       }
     );
+    cy.get("#1").click();
     cy.get("h2").contains("Something went wrong. Please try again later.");
   });
 
   it("should alert the user of a 500 error", () => {
-    cy.get("#1").click();
     cy.intercept(
       "GET",
       "https://rancid-tomatillos.herokuapp.com/api/v1/movies/1",
@@ -27,6 +24,7 @@ describe("Selected Movie View", () => {
         statusCode: 500,
       }
     );
+    cy.get("#1").click();
     cy.get("h2").contains("Our servers are currently down. Please try again.");
   });
 
