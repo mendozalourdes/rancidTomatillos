@@ -1,4 +1,5 @@
 import React from "react"
+import "./RandomMovieBackdrop.css"
 
 
 
@@ -9,7 +10,7 @@ const RandomMovieBackdrop = (props) => {
 
     return (
         <section className="random-movie-section">
-                <h2 className="backdrop-title"> {randomTitle} </h2>
+                <h2 className="random-movie-title"> {randomTitle} </h2>
                 <img className="random-movie-backdrop" src={randomBackdrop} alt={`Backdrop from ${randomTitle}`}/>
             </section>
         )
