@@ -2,6 +2,8 @@
     color: white;
     background-color: transparent;
     border: 2px solid transparent;
+    font-size: 1.75vh;
+    height: 8vh;
 }
 
 .title-button:hover {
