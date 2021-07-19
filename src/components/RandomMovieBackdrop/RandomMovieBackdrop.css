@@ -19,6 +19,12 @@
 
 .random-movie-title {
     color: white;
+    font-size: 2em;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
 .random-movie-backdrop {
@@ -29,9 +35,9 @@
 
 .random-info-button {
     margin-bottom: 40%;
-    width: 140%;
-    height: 15%;
-    background:rgb(118, 119, 163);
+    width: 10em;
+    height: 10%;
+    background:rgba(118, 119, 163, 0.9);
     text-transform:uppercase;
     color:white;
     border:none;
@@ -51,4 +57,9 @@
     .random-movie-section {
       height: 225px;
     }
+}
+
+.random-info-button:hover {
+    background:rgba(134, 135, 158, 0.9);
+    border: 1px solid white;
 }
