@@ -1,5 +1,10 @@
 .title-button {
     color: white;
     background-color: transparent;
-    border: 0;
+    border: 2px solid transparent;
+}
+
+.title-button:hover {
+    border-bottom: 2px solid white;
+    overflow: hidden;
 }
