@@ -5,7 +5,7 @@ describe("User visits the search page view", () => {
         body: movies,
       }).as("movies");
     });
-    cy.visit("http://localhost:3000/search");
+    cy.visit("http://localhost:3000");
   });
 
   it("Should show the user a page title and directive text", () => {
@@ -18,10 +18,9 @@ describe("User visits the search page view", () => {
 
   it("should be able to search for a movie given an input", () => {
     cy.get("input")
-      .type("Bill")
+      .type("Rogue")
+      .get('.search-button').click()
       .get(".movie-container")
-      .children()
-      .should("have.length", 1)
       .get("img")
       .should("have.class", "movie-poster")
       .get("button")
@@ -30,19 +29,21 @@ describe("User visits the search page view", () => {
 
   it("should show no results if input does not match film selection", () => {
     cy.get("input")
-      .type("The Simpsons")
+      .type("The Sopranos")
+      .get('.search-button').click()
       .get(".movie-container")
-      .children()
+      .get("img")
       .should("have.length", 0);
   });
 
   it("should show an error message if the input does not match film selection", () => {
     cy.get("input")
       .type("The Simpsons")
+      .get('.search-button').click()
       .get(".movie-container")
-      .children()
+      .get("img")
       .should("have.length", 0);
-    cy.get("h1").contains(
+    cy.get("h2").contains(
       "Sorry, we couldn't find any movies to match your search. Please try again!"
     );
   });
@@ -50,9 +51,8 @@ describe("User visits the search page view", () => {
   it("should clear input after user clicks on the more info button", () => {
     cy.get("input")
       .type("Mulan")
+      .get('.search-button').click()
       .get(".movie-container")
-      .children()
-      .should("have.length", 1)
       .get("img")
       .should("have.class", "movie-poster")
       .get("button")
@@ -64,6 +64,7 @@ describe("User visits the search page view", () => {
   it("should clear input after user clicks on the movie poster", () => {
     cy.get("input")
       .type("Mulan")
+      .get('.search-button').click()
       .get(".movie-container")
       .children()
       .should("have.length", 1)
@@ -85,3 +86,4 @@ describe("User visits the search page view", () => {
       .should("have.length", 41);
   });
 });
+

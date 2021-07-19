@@ -1,6 +1,5 @@
-
 .movie-container {
-  display: grid;   
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
   grid-gap: 5%;
   height: 105vh;
@@ -13,22 +12,21 @@
   width: 100%;
   overflow: hidden;
 }
-  
+
 .random-movie-backdrop {
   width: 100%;
   position: relative;
   z-index: -2;
   box-shadow: 0px 8px 15px 0px #341555;
 }
-  
 
-@media only screen and (min-width: 1126px){
+@media only screen and (min-width: 1126px) {
   .random-movie-section {
-    height: 70vh
+    height: 70vh;
   }
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 600px) {
   .random-movie-section {
     height: 225px;
   }

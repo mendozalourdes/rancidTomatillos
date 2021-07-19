@@ -1,4 +1,3 @@
-
 .backdrop {
   height: 50%;
   width: auto;
@@ -12,7 +11,7 @@
 .backdrop-container {
   display: flex;
   justify-content: flex-end;
-  box-shadow: inset 0px 0px 500px rgba(0,0,0);
+  box-shadow: inset 0px 0px 500px rgba(0, 0, 0);
   position: relative;
 }
 
@@ -58,7 +57,7 @@
   width: auto;
   height: auto;
   position: absolute;
-  background:rgba(255, 255, 255, .27);
+  background: rgba(255, 255, 255, 0.27);
   padding: 1.5%;
   border-radius: 16%;
 }
@@ -68,50 +67,49 @@
   margin-left: 2em;
 }
 
-
 .return-home {
-  width:100%;
-  height:80px;
-  position:relative;
-  background:rgba(255, 255, 255, .27);
-  text-transform:uppercase;
-  color:white;
-  font-weight:700;
-  letter-spacing:1px;
-  border:none;
-  font-size:15px;
-  outline:none;
+  width: 100%;
+  height: 80px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.27);
+  text-transform: uppercase;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: none;
+  font-size: 15px;
+  outline: none;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   cursor: pointer;
 }
 
-.border{
-  position:absolute;
-  background:none;
-  transition:all .5s ease-in-out;
+.border {
+  position: absolute;
+  background: none;
+  transition: all 0.5s ease-in-out;
 }
 
-#first>.border:nth-of-type(1){
-  top:0;
-  left:0;
-  border-left:1px solid white;
-  border-top:1px solid white;
-  width:30px;
-  height:30px;
+#first > .border:nth-of-type(1) {
+  top: 0;
+  left: 0;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  width: 30px;
+  height: 30px;
 }
 
-#first>.border:nth-of-type(2){
-  bottom:0;
-  right:0;
-  border-right:1px solid white;
-  border-bottom:1px solid white;
-  width:30px;
-  height:30px;
+#first > .border:nth-of-type(2) {
+  bottom: 0;
+  right: 0;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  width: 30px;
+  height: 30px;
 }
 
-#first:hover .border{
-  width:102%;
-  height:105%;
+#first:hover .border {
+  width: 102%;
+  height: 105%;
 }
 
 .genres {
@@ -132,20 +130,20 @@
   padding-bottom: 2%;
 }
 
-@media only screen and (min-width: 1100px){
+@media only screen and (min-width: 1100px) {
   .selected-movie-poster {
-    width: 21vw
+    width: 21vw;
   }
 }
 
-@media only screen and (min-width: 1390px){
+@media only screen and (min-width: 1390px) {
   .selected-movie-poster {
-    width: 18vw
+    width: 18vw;
   }
 }
 
-@media only screen and (min-width: 1660px){
+@media only screen and (min-width: 1660px) {
   .selected-movie-poster {
-    width: 14vw
+    width: 14vw;
   }
 }
