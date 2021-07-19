@@ -6,28 +6,5 @@
   margin-left: 2em;
   margin-right: 2em;
   margin-top: 2%;
-}
-
-.random-movie-section {
-  width: 100%;
-  overflow: hidden;
-}
-
-.random-movie-backdrop {
-  width: 100%;
-  position: relative;
-  z-index: -2;
-  box-shadow: 0px 8px 15px 0px #341555;
-}
-
-@media only screen and (min-width: 1126px) {
-  .random-movie-section {
-    height: 70vh;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .random-movie-section {
-    height: 225px;
-  }
+  margin-bottom: 5%;
 }

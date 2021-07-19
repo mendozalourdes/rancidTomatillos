@@ -1,4 +1,12 @@
-.app-title {
-  color: white;
-  text-decoration: none;
+.title-button {
+    color: white;
+    background-color: transparent;
+    border: 2px solid transparent;
+    font-size: 1.75vh;
+    height: 8vh;
+}
+
+.title-button:hover {
+    border-bottom: 2px solid white;
+    overflow: hidden;
 }

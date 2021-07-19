@@ -1,0 +1,64 @@
+.random-movie-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: inset 0px 0px 500px rgba(0,0,0);
+    position: relative;
+    box-shadow: 0px 8px 15px 0px #341555;
+}
+
+.random-movie-details {
+    position: absolute;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.random-movie-title {
+    color: white;
+    font-size: 2em;
+    text-shadow:
+		-1px -1px 0 #341555,
+		1px -1px 0 #341555,
+		-1px 1px 0 #341555,
+		1px 1px 0 #341555;
+}
+
+.random-movie-backdrop {
+    width: 100%;
+    position: relative;
+    z-index: -2;
+}
+
+.random-info-button {
+    margin-bottom: 5vh;
+    width: 10em;
+    height: 5vh;
+    background:rgba(118, 119, 163, 0.9);
+    text-transform:uppercase;
+    color:white;
+    font-size:15px;
+    outline:none;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    border: 1px solid transparent;
+}
+    
+
+@media only screen and (min-width: 1126px){
+    .random-movie-section {
+      height: 70vh
+    }
+}
+  
+@media only screen and (max-width: 600px){
+    .random-movie-section {
+      height: 225px;
+    }
+}
+
+.random-info-button:hover {
+    border: 1px solid white;
+}

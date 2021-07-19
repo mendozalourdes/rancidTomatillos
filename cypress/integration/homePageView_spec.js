@@ -17,7 +17,7 @@ describe("User visits the homepage tests", () => {
 
   it('Should have a "more info" button for each poster', () => {
     cy.wait(2000);
-    cy.get("button").should("have.length", 42).contains("More Info").click();
+    cy.get("button").should("have.length", 43).contains("More Info").click();
   });
 
   it("Should show the user a selection of movies from a database upon page load", () => {

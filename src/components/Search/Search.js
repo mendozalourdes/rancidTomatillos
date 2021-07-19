@@ -1,7 +1,8 @@
-import React from "react";
-import { NavLink, Link, Route } from "react-router-dom";
-import Results from "../Results/Results";
-import "./Search.css";
+import React from "react"
+import { NavLink, Link, Route } from 'react-router-dom'
+import Results from "../Results/Results"
+import "./Search.css"
+
 
 class Search extends React.Component {
   constructor(props) {
@@ -34,19 +35,17 @@ class Search extends React.Component {
   cleanInputs = () => {
     this.setState({ search: "" });
   };
-
+  
   render() {
     return (
       <>
         <header>
-          <NavLink to={"/"} className=".app-title">
-            {" "}
-            <button>
-              {" "}
-              <h1 className="app-title" onClick={this.cleanInputs}>
+          <NavLink to={"/"}>
+            <button className="title-button">
+              <h1 onClick={this.cleanInputs}>
                 Rancid Tomatillos
               </h1>
-            </button>{" "}
+            </button>
           </NavLink>
           <nav>
             <form onSubmit={(event) => this.handleChange(event)}>
@@ -87,6 +86,5 @@ class Search extends React.Component {
       </>
     );
   }
-}
-
-export default Search;
+  }
+  export default Search;
