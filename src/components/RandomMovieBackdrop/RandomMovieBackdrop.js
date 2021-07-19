@@ -10,9 +10,12 @@ const RandomMovieBackdrop = (props) => {
 
     return (
         <section className="random-movie-section">
+            <img className="random-movie-backdrop" src={randomBackdrop} alt={`Backdrop from ${randomTitle}`}/>
+            <div className="random-movie-details">
                 <h2 className="random-movie-title"> {randomTitle} </h2>
-                <img className="random-movie-backdrop" src={randomBackdrop} alt={`Backdrop from ${randomTitle}`}/>
-            </section>
+                <button className="random-info-button" id={props.id}>More Info</button>
+            </div>
+        </section>
         )
 }
 

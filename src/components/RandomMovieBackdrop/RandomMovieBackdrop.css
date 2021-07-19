@@ -5,20 +5,39 @@
     overflow: hidden;
     box-shadow: inset 0px 0px 500px rgba(0,0,0);
     position: relative;
+    box-shadow: 0px 8px 15px 0px #341555;
+}
+
+.random-movie-details {
+    position: absolute;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
 }
 
 .random-movie-title {
-    position: absolute;
     color: white;
-    margin-left: 5%;
-    text-transform: capitalize;
 }
 
 .random-movie-backdrop {
     width: 100%;
     position: relative;
     z-index: -2;
-    box-shadow: 0px 8px 15px 0px #341555;
+}
+
+.random-info-button {
+    margin-bottom: 40%;
+    width: 140%;
+    height: 15%;
+    background:rgb(118, 119, 163);
+    text-transform:uppercase;
+    color:white;
+    border:none;
+    font-size:15px;
+    outline:none;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
     
 
