@@ -1,0 +1,12 @@
+.random-movie-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.random-movie-title {
+    position: absolute;
+}
+
+.random-movie-backdrop {
+    position: relative;
+}
