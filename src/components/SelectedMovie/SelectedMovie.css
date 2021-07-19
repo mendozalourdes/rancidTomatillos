@@ -147,3 +147,7 @@
     width: 14vw;
   }
 }
+
+.return-home:hover {
+  border: 1px solid white;
+}

@@ -21,10 +21,10 @@
     color: white;
     font-size: 2em;
     text-shadow:
-		-1px -1px 0 #000,
-		1px -1px 0 #000,
-		-1px 1px 0 #000,
-		1px 1px 0 #000;
+		-1px -1px 0 #341555,
+		1px -1px 0 #341555,
+		-1px 1px 0 #341555,
+		1px 1px 0 #341555;
 }
 
 .random-movie-backdrop {
@@ -34,16 +34,16 @@
 }
 
 .random-info-button {
-    margin-bottom: 40%;
+    margin-bottom: 5vh;
     width: 10em;
-    height: 10%;
+    height: 5vh;
     background:rgba(118, 119, 163, 0.9);
     text-transform:uppercase;
     color:white;
-    border:none;
     font-size:15px;
     outline:none;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    border: 1px solid transparent;
 }
     
 
@@ -60,6 +60,5 @@
 }
 
 .random-info-button:hover {
-    background:rgba(134, 135, 158, 0.9);
     border: 1px solid white;
 }
