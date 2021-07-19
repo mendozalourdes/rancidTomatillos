@@ -48,9 +48,10 @@ To solidify and demonstrate the understanding of:
 
 ##### Wins
 * Successfully refactoring our code with Router to make a multi-page application. 
+* Implementing dynamic search functionality. 
 
 ##### Challenges
-* 
+* Creating comprehensive cypress tests for sad path testing. 
 
 #### Future Features
 * Ability for users to add a movie of their choosing to the database.
