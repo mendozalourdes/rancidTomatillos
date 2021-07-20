@@ -1,11 +1,15 @@
 describe("User visits the homepage tests", () => {
   beforeEach(() => {
-    // cy.visit("http://localhost:3000");
     cy.loadMain()
   });
 
   it("Should show the user a page title and directive text", () => {
     cy.contains("h1", "Rancid Tomatillos");
+  });
+
+  it("Should reload the page when title is clicked", () => {
+    cy.get(".title-button").click();
+    cy.url().should("include", "http://localhost:3000");
   });
 
   it("Should show the user a random movie image", () => {
@@ -16,12 +20,17 @@ describe("User visits the homepage tests", () => {
     cy.get(".random-info-button").contains("More Info").click();
   })
 
+  it("Should redirect the user once more info button is clicked", () => {
+    cy.get(".random-info-button").contains("More Info").click();
+    cy.url().should("include", "movies/");
+  })
+
   it("Should show the user a search bar", () => {
     cy.get("input").should("have.class", "search-box");
   });
 
   it('Should have a "more info" button for each poster', () => {
-    cy.wait(2000);
+    // cy.wait(2000);
     cy.get(".info-button").should("have.length", 41).contains("More Info").click();
   });
 
@@ -41,10 +50,21 @@ describe("User visits the homepage tests", () => {
         statusCode: 404,
         body: {
           message: "Something went wrong. Please try again later.",
-        },
+        }
       }
     );
-    cy.visit("http://localhost:3000");
     cy.get("h2").contains("Something went wrong. Please try again later.");
+  });
+
+  it("Should show the user an error message if a 400 error is encountered", () => {
+    cy.intercept("https://rancid-tomatillos.herokuapp.com/api/v1/movies/",
+      {
+        statusCode: 500,
+        body: {
+          message: "Our servers are currently down. Please try again.",
+        }
+      }
+    );
+    cy.get("h2").contains("Our servers are currently down. Please try again.");
   });
 });

@@ -29,7 +29,7 @@ class App extends React.Component {
           this.setState({ movies: cleanAllMovies(response.movies) });
         }
       })
-      .catch((err) => err.message);
+      .catch((err) => this.setState({ error: err.message }));
   }
 
   render() {
