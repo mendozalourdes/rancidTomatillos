@@ -27,21 +27,22 @@ To solidify and demonstrate the understanding of:
 
 ## How does this work?
 
-![Home Page View]()
-![Search Bar View]()
-![Movie Details View]()  
+![Home Page View & Movie Details](https://media.giphy.com/media/A7tKVfcBsQJfTXoGUo/giphy.gif)
+![Search Bar View](https://media.giphy.com/media/iG5KEfVrhE9KjuPe0R/giphy.gif) 
 
 
 **[Back to top](#table-of-contents)**
 
 ## Technologies Used
-<p align="left">
-  <img src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="javascript" />
-  <img src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white" alt="html5"/>
-  <img src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
-  <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="Github" />
-  <p>API</p>
-  <p>Cypress Testing</p>
+<p style="text-align: center;"> 
+    <img alt="React Badge" src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=flat-square)" />
+    <img alt="JavaScript Badge" src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000&style=flat-square" />
+    <img alt="HTML5 Badge" src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=fff&style=flat-square" />
+    <img alt="CSS3 Badge" src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=fff&style=flat-square" />
+    <img alt="Express Badge" src="https://img.shields.io/badge/Express-000?logo=express&logoColor=fff&style=flat-square" />
+    <img alt="Cypress Badge" src="https://img.shields.io/badge/Cypress-17202C?logo=cypress&logoColor=fff&style=flat-square" />
+</p>
+
 
 
 ## Project Reflection
