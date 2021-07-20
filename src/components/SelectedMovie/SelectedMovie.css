@@ -28,7 +28,7 @@
 .selected-movie-poster {
   box-shadow: 7px 2px 20px 0px;
   padding: 10px 10px 10px 10px;
-  width: 24vw;
+  width: 18vw;
   height: auto;
   overflow: hidden;
   object-fit: cover;
@@ -132,13 +132,13 @@
 
 @media only screen and (min-width: 1100px) {
   .selected-movie-poster {
-    width: 21vw;
+    width: 16vw;
   }
 }
 
 @media only screen and (min-width: 1390px) {
   .selected-movie-poster {
-    width: 18vw;
+    width: 15vw;
   }
 }
 
