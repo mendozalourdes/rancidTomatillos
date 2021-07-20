@@ -8,7 +8,7 @@ describe("User visits the search page view", () => {
     cy.visit("http://localhost:3000");
   });
 
-  it("Should show the user a page title and directive text", () => {
+  it("Should show the user a page title", () => {
     cy.contains("h1", "Rancid Tomatillos");
   });
 
