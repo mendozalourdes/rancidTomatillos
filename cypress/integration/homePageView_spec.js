@@ -3,7 +3,7 @@ describe("User visits the homepage tests", () => {
     cy.loadMain()
   });
 
-  it("Should show the user a page title and directive text", () => {
+  it("Should show the user a page title", () => {
     cy.contains("h1", "Rancid Tomatillos");
   });
 
@@ -30,8 +30,12 @@ describe("User visits the homepage tests", () => {
   });
 
   it('Should have a "more info" button for each poster', () => {
-    // cy.wait(2000);
     cy.get(".info-button").should("have.length", 41).contains("More Info").click();
+  });
+
+  it('Should redirect user to selected movie view when more info is clicked', () => {
+    cy.get("#1").click();
+    cy.url().should("include", "movies/");
   });
 
   it("Should show the user a selection of movies from a database upon page load", () => {
@@ -56,7 +60,7 @@ describe("User visits the homepage tests", () => {
     cy.get("h2").contains("Something went wrong. Please try again later.");
   });
 
-  it("Should show the user an error message if a 400 error is encountered", () => {
+  it("Should show the user an error message if a 500 error is encountered", () => {
     cy.intercept("https://rancid-tomatillos.herokuapp.com/api/v1/movies/",
       {
         statusCode: 500,
