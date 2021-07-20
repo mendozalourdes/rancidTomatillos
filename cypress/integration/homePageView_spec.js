@@ -1,6 +1,7 @@
 describe("User visits the homepage tests", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000");
+    // cy.visit("http://localhost:3000");
+    cy.loadMain()
   });
 
   it("Should show the user a page title and directive text", () => {
@@ -11,13 +12,17 @@ describe("User visits the homepage tests", () => {
     cy.get("img").should("have.class", "random-movie-backdrop");
   });
 
+  it("Should have a more info button on random movie image", () => {
+    cy.get(".random-info-button").contains("More Info").click();
+  })
+
   it("Should show the user a search bar", () => {
     cy.get("input").should("have.class", "search-box");
   });
 
   it('Should have a "more info" button for each poster', () => {
     cy.wait(2000);
-    cy.get("button").should("have.length", 43).contains("More Info").click();
+    cy.get(".info-button").should("have.length", 41).contains("More Info").click();
   });
 
   it("Should show the user a selection of movies from a database upon page load", () => {
@@ -27,6 +32,7 @@ describe("User visits the homepage tests", () => {
     });
     cy.visit("http://localhost:3000");
     cy.get("img").should("have.class", "movie-poster");
+    cy.get(".movie-poster").should("have.length", 41);
   });
 
   it("Should show the user an error message if a 400 error is encountered", () => {
